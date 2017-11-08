@@ -29,5 +29,35 @@ namespace BoardgameInc.Logic_layer
             return 0;
         }
 
+        public String getType()
+        {
+            return this.type;
+        }
+
+        public void setType(String s)
+        {
+            this.type = s;
+        }
+
+        public int getSize()
+        {
+            return this.size;
+        }
+
+        public void setSize(int i)
+        {
+            this.size = i;
+        }
+
+        public String[] getGridlocs()
+        {
+            return this.gridLocs;
+        }
+
+        public void setGridlocs(String[] s)
+        {
+            this.gridLocs = s;
+        }
+
     }
 }

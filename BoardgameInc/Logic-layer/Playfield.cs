@@ -25,5 +25,25 @@ namespace BoardgameInc.Logic_layer
         public String checkHit(String loc) {
             return "";
         }
+
+        public Ship[] getShips()
+        {
+            return this.ships;
+        }
+
+        public void setShips(Ship[] s)
+        {
+            this.ships = s;
+        }
+
+        public int getShipsLeft()
+        {
+            return this.shipsLeft;
+        }
+
+        public void setShips(int i)
+        {
+            this.shipsLeft = i;
+        }
     }
 }

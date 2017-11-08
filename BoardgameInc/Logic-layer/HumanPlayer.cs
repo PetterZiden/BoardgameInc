@@ -17,5 +17,6 @@ namespace BoardgameInc.Logic_layer
         ~HumanPlayer()
         {
         }
+
     }
 }

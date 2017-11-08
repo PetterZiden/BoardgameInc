@@ -22,5 +22,15 @@ namespace BoardgameInc.Logic_layer
         ~LogicController()
         {
         }
+
+        public Player[] getPlayers()
+        {
+            return this.players;
+        }
+
+        public void setPlayers(Player[] p)
+        {
+            this.players = p;
+        }
     }
 }
