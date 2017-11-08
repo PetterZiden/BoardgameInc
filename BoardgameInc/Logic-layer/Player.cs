@@ -10,11 +10,10 @@ namespace BoardgameInc.Logic_layer
     public class Player
     {
         private String name;
-        private PlayField type;
 
-        public Player(string n, PlayField t){
+        public Player(string n)
+        {
             this.name = n;
-            this.type = t;
         }
     }
 

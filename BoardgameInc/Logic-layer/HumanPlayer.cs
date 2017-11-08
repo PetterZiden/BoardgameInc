@@ -8,8 +8,14 @@ namespace BoardgameInc.Logic_layer
 {
     class HumanPlayer : Player
     {
-        public HumanPlayer() {
+        public HumanPlayer(String n)
+            :base(n)
+        {
 
+        }
+
+        ~HumanPlayer()
+        {
         }
     }
 }

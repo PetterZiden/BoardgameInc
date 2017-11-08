@@ -13,13 +13,19 @@ namespace BoardgameInc.Logic_layer
         private int size;
         private String[] gridLocs;
 
-        public Ship(String t, int s, String[] gl) {
+        public Ship(String t, int s, String[] gl)
+        {
             this.type = t;
             this.size = s;
             this.gridLocs = gl;
         }
 
-        public int checkHit(String loc) {
+        ~Ship()
+        {
+        }
+
+        public int checkHit(String loc)
+        {
             return 0;
         }
 

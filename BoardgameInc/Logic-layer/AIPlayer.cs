@@ -8,9 +8,14 @@ namespace BoardgameInc.Logic_layer
 {
     public class AIPlayer : Player
     {
-        public AIPlayer()
+        public AIPlayer(String n)
+            :base(n)
         {
 
+        }
+
+        ~AIPlayer()
+        {
         }
 
     }

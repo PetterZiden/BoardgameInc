@@ -7,15 +7,20 @@ using System.Threading.Tasks;
 namespace BoardgameInc.Logic_layer
 {
 
-  
+
 
     class LogicController
     {
 
         private Player[] players;
 
-        public LogicController(Player[] p) {
+        public LogicController(Player[] p)
+        {
             this.players = p;
+        }
+
+        ~LogicController()
+        {
         }
     }
 }

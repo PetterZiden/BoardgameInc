@@ -18,6 +18,10 @@ namespace BoardgameInc.Logic_layer
             this.shipsLeft = sl;
         }
 
+        ~PlayField()
+        {
+        }
+
         public String checkHit(String loc) {
             return "";
         }
