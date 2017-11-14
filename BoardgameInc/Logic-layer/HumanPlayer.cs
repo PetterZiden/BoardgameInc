@@ -18,5 +18,17 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
+        public String getShotLoc()
+        {
+            Console.WriteLine(name + " Enter grid location to shoot at:");
+            String gridLoc = Console.ReadLine();
+            return gridLoc;
+        }
+
+        public void getShotFeedback(int hitmarker)
+        {
+
+        }
+
     }
 }
