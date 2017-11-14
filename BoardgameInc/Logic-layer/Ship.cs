@@ -11,12 +11,13 @@ namespace BoardgameInc.Logic_layer
 
         private String type;
         private int size;
-        private String[] gridLocs;
+        private List<String> gridLocs;
 
-        public Ship(String t, int s, String[] gl)
+        public Ship(String t, int s, List<String> gl)
         {
             this.type = t;
             this.size = s;
+            gridLocs = new List<String>();
             this.gridLocs = gl;
         }
 
@@ -26,7 +27,16 @@ namespace BoardgameInc.Logic_layer
 
         public int checkHit(String loc)
         {
-            return 0;
+            foreach(String s in gridLocs)
+            {
+                if (loc.Equals(s))
+                {
+                    gridLocs.Remove(s);
+                    return gridLocs.Count;
+                }
+            }
+            return -1;
+            
         }
 
         public String getType()
@@ -49,12 +59,12 @@ namespace BoardgameInc.Logic_layer
             this.size = i;
         }
 
-        public String[] getGridlocs()
+        public List<String> getGridlocs()
         {
             return this.gridLocs;
         }
 
-        public void setGridlocs(String[] s)
+        public void setGridlocs(List<String> s)
         {
             this.gridLocs = s;
         }

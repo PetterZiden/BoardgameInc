@@ -9,7 +9,7 @@ namespace BoardgameInc.Logic_layer
 
     public class Player
     {
-        private String name;
+        protected String name;
 
         public Player(string n)
         {

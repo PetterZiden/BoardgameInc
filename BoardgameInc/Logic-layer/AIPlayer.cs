@@ -18,6 +18,16 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
+        public String getShotLoc()
+        {
+            return null;
+        }
+
+        public void getShotFeedback(int hitmarker)
+        {
+
+        }
+
     }
 }
 
