@@ -7,13 +7,22 @@ using System.Threading.Tasks;
 namespace BoardgameInc.Logic_layer
 {
 
-    public class Player
+    public abstract class Player
     {
         protected String name;
 
         public Player(string n)
         {
             this.name = n;
+        }
+
+        public abstract String getShotLoc();
+        
+
+
+        public void getShotFeedback(int hitmarker)
+        {
+
         }
 
         public String getName()
