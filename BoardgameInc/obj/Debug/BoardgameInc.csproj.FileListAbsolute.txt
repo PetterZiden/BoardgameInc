@@ -1,0 +1,15 @@
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.exe.config
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.exe
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.pdb
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.csprojResolveAssemblyReference.cache
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\MainWindow.g.cs
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\App.g.cs
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc_MarkupCompile.cache
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc_MarkupCompile.lref
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\MainWindow.baml
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.g.resources
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.Properties.Resources.resources
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.csproj.GenerateResource.Cache
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.csproj.CoreCompileInputs.cache
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.exe
+C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.pdb
