@@ -8,19 +8,36 @@ namespace BoardgameInc.Logic_layer
 {
 
 
-
     class LogicController
     {
 
         private Player[] players;
 
-        public LogicController(Player[] p)
+        public static void GameLoop()
         {
-            this.players = p;
-        }
+            Console.WriteLine("Enter player name for Player 1");
+            String name1 = Console.ReadLine();
+            Player player1 = new HumanPlayer(name1);
+            Console.WriteLine("Enter player name for Player 2");
+            String name2 = Console.ReadLine();
 
-        ~LogicController()
-        {
+            Console.WriteLine("Choose 1 or 2 human players");
+            int playerType = Console.Read();
+            if (playerType == 1)
+            {
+                Player player2 = new AIPlayer(name2);
+            }
+            else
+            {
+                Player player2 = new HumanPlayer(name2);
+            }
+
+
+
+
+
+
+
         }
 
         public Player[] getPlayers()

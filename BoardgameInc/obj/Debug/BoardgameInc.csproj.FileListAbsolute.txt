@@ -1,0 +1,14 @@
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.exe.config
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.exe
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\bin\Debug\BoardgameInc.pdb
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\MainWindow.g.cs
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\App.g.cs
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc_MarkupCompile.cache
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc_MarkupCompile.lref
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\MainWindow.baml
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.g.resources
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.Properties.Resources.resources
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.csproj.GenerateResource.Cache
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.csproj.CoreCompileInputs.cache
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.exe
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\BoardgameInc.pdb
