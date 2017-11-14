@@ -22,27 +22,8 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-        public Boolean checkHit(String loc)
-        {
-
-            for (int i = 0; i < ships.Length; i++)
-            {
-                int checkIfHit = ships[i].checkHit(loc);
-                if (checkIfHit >= 0)
-                {
-                    if (checkIfHit == 0)
-                    {
-                        //ta bort ship
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            return false;
-
+        public String checkHit(String loc) {
+            return "";
         }
 
         public Ship[] getShips()
