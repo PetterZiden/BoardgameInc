@@ -40,16 +40,19 @@ namespace BoardgameInc.Logic_layer
         override
         public String getShotLoc()
         {
+            Console.WriteLine(name + " Enter grid location to shoot at:");
             int locIndex;
             if (highPriority.Count != 0)
             {
                 locIndex = rnd.Next(0, highPriority.Count - 1);
                 int gridIndex = grid.IndexOf(highPriority[locIndex]);
+                Console.WriteLine(highPriority[locIndex]);
                 return highPriority[locIndex];
             }
             else if (mediumPriority.Count != 0)
             {
                 locIndex = rnd.Next(0, mediumPriority.Count - 1);
+                Console.WriteLine(mediumPriority[locIndex]);
                 return mediumPriority[locIndex];
             }
             else
@@ -58,11 +61,12 @@ namespace BoardgameInc.Logic_layer
                 {
                     locIndex = rnd.Next(0, grid.Count - 1);
                 } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex].Equals("HIT") || grid[locIndex].Equals("MISS"));
+                Console.WriteLine(grid[locIndex]);
                 return grid[locIndex];
             }
                 
         }
-
+        override
         public void getShotFeedback(int hitMarker, String gridLoc)
         {
             int gridIndex = grid.IndexOf(gridLoc);
@@ -155,8 +159,6 @@ namespace BoardgameInc.Logic_layer
                     {
                         mediumPriority.Add(grid[gridIndex - gridSizeY]);
                     }
-
-
                 }
                 else if (hitMarker == 0)
                 {
@@ -166,7 +168,6 @@ namespace BoardgameInc.Logic_layer
                 else
                 {
                     grid[gridIndex] = "MISS";
-
                 }
             }
 

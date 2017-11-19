@@ -9,7 +9,8 @@ namespace BoardgameInc.Logic_layer
     class LogicController
     {
 
-        public static void GameLoop() {
+        public static void GameLoop()
+        {
 
             List<Ship> ships = new List<Ship>();
             ships.Add(new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" })));
@@ -27,10 +28,10 @@ namespace BoardgameInc.Logic_layer
             Player player2;
             if (playerType == 1)
             {
-                player2 = new AIPlayer(name2);
+                player2 = new HumanPlayer(name2);
             }
             else {
-                player2 = new HumanPlayer(name2);
+                player2 = new AIPlayer(name2);
             }
             ships = new List<Ship>();
             ships.Add(new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" })));
@@ -42,20 +43,38 @@ namespace BoardgameInc.Logic_layer
             while(true) {
                 input = player1.getShotLoc();
                 hitMarker = playfield2.checkHit(input);
-                player1.getShotFeedback(hitMarker);
+                player1.getShotFeedback(hitMarker, input);
+                printOutput(hitMarker);
                 if(!playfield2.getShipsLeft()) {
 
                     break;
                     }
                 input = player2.getShotLoc();
                 hitMarker = playfield1.checkHit(input);
-                player2.getShotFeedback(hitMarker);
+                player2.getShotFeedback(hitMarker, input);
+                printOutput(hitMarker);
                 if (!playfield1.getShipsLeft()) {
 
                     break;
                     }
             }
+        }
+
+        private static void printOutput(int hitMarker)
+        {
+            if(hitMarker > 0)
+            {
+                Console.WriteLine("HIT!");
             }
+            else if(hitMarker == 0)
+            {
+                Console.WriteLine("HIT! SHIP DESTROYED!");
+            }
+            else
+            {
+                Console.WriteLine("MISS!");
+            }
+        }
 
     }
 }

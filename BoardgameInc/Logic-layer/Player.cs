@@ -17,14 +17,8 @@ namespace BoardgameInc.Logic_layer
         }
 
         public abstract String getShotLoc();
+        public abstract void getShotFeedback(int hitmarker, String gridLoc);
         
-
-
-        public void getShotFeedback(int hitmarker)
-        {
-
-        }
-
         public String getName()
         {
             return this.name;

@@ -26,9 +26,9 @@ namespace BoardgameInc.Logic_layer
             return gridLoc;
         }
 
-        public void getShotFeedback(int hitmarker)
+        override
+        public void getShotFeedback(int hitmarker, String gridLoc)
         {
-
         }
 
     }

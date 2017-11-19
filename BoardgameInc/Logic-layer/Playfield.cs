@@ -35,6 +35,7 @@ namespace BoardgameInc.Logic_layer
                     }
                     return checkIfHit;
                 }
+                
             }
             return -1;
 
