@@ -10,10 +10,10 @@ namespace BoardgameInc.Logic_layer
 
     class PlayField
     {
-        private Ship[] ships;
+        private List<Ship> ships;
         private int shipsLeft;
 
-        public PlayField(Ship[] s, int sl) {
+        public PlayField(List<Ship> s, int sl) {
             this.ships = s;
             this.shipsLeft = sl;
         }
@@ -22,32 +22,30 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-       public Boolean checkHit(String loc) {
+       public int checkHit(String loc) {
 
-            for (int i = 0; i < ships.Length; i++) {
+            for (int i = 0; i < ships.Count; i++) {
                 int checkIfHit = ships[i].checkHit(loc);
                 if (checkIfHit >= 0)
                 {
                     if (checkIfHit == 0)
                     {
-                        //ta bort ship
+                        ships.RemoveAt(i);
+                        shipsLeft--;
                     }
-                    return true;
-                }
-                else {
-                    return false;
+                    return checkIfHit;
                 }
             }
-            return false;
+            return -1;
 
         }
 
-        public Ship[] getShips()
+        public List<Ship> getShips()
         {
             return this.ships;
         }
 
-        public void setShips(Ship[] s)
+        public void setShips(List<Ship> s)
         {
             this.ships = s;
         }
