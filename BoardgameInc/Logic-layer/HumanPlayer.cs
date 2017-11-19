@@ -18,6 +18,7 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
+        override
         public String getShotLoc()
         {
             Console.WriteLine(name + " Enter grid location to shoot at:");

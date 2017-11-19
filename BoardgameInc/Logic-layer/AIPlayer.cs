@@ -37,7 +37,7 @@ namespace BoardgameInc.Logic_layer
         ~AIPlayer()
         {
         }
-
+        override
         public String getShotLoc()
         {
             int locIndex;
