@@ -13,9 +13,9 @@ namespace BoardgameInc.Logic_layer
         private List<Ship> ships;
         private int shipsLeft;
 
-        public PlayField(List<Ship> s, int sl) {
+        public PlayField(List<Ship> s) {
             this.ships = s;
-            this.shipsLeft = sl;
+            shipsLeft = 3;
         }
 
         ~PlayField()
@@ -50,9 +50,16 @@ namespace BoardgameInc.Logic_layer
             this.ships = s;
         }
 
-        public int getShipsLeft()
+        public Boolean getShipsLeft()
         {
-            return this.shipsLeft;
+            if(shipsLeft > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void setShips(int i)

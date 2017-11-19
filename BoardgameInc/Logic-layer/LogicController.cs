@@ -11,11 +11,10 @@ namespace BoardgameInc.Logic_layer
 
         public static void GameLoop() {
 
-           
-            Ship ship1 = new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" }));
-            Ship ship2 = new Ship("Medium", 3, new List<String>(new String[]{ "C3", "C4", "C5" }));
-            Ship ship3 = new Ship("Large", 4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" }));
-            Ship [] ships = new Ship[3] {ship1, ship2, ship3};
+            List<Ship> ships = new List<Ship>();
+            ships.Add(new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" })));
+            ships.Add(new Ship("Medium", 3, new List<String>(new String[]{ "C3", "C4", "C5" })));
+            ships.Add(new Ship("Large", 4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" })));
             Console.WriteLine("Enter player name for Player 1");
             String name1 = Console.ReadLine();
             Player player1 = new HumanPlayer(name1);
@@ -33,22 +32,25 @@ namespace BoardgameInc.Logic_layer
             else {
                 player2 = new HumanPlayer(name2);
             }
-            ship1 = new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" }));
-            ship2 = new Ship("Medium", 3, new List<String>(new String[]{ "C3", "C4", "C5" }));
-            ship3 = new Ship("Large", 4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" }));
-            ships = new Ship[3] {ship1, ship2, ship3};
+            ships = new List<Ship>();
+            ships.Add(new Ship("Small", 2, new List<String>(new String[]{ "A3", "A4" })));
+            ships.Add(new Ship("Medium", 3, new List<String>(new String[]{ "C3", "C4", "C5" })));
+            ships.Add(new Ship("Large", 4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" })));
             PlayField playfield2 = new PlayField(ships);
             String input;
+            int hitMarker;
             while(true) {
                 input = player1.getShotLoc();
-                playfield2.checkHit(input);
-                if(playfield2.getShipsLeft()) {
+                hitMarker = playfield2.checkHit(input);
+                player1.getShotFeedback(hitMarker);
+                if(!playfield2.getShipsLeft()) {
 
                     break;
                     }
                 input = player2.getShotLoc();
-                playfield1.checkHit(input);
-                if(playfield1.getShipsLeft()) {
+                hitMarker = playfield1.checkHit(input);
+                player2.getShotFeedback(hitMarker);
+                if (!playfield1.getShipsLeft()) {
 
                     break;
                     }
