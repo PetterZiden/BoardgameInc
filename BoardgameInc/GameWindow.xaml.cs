@@ -31,5 +31,7 @@ namespace BoardgameInc
             lc = l;
             lc.GameLoop();
         }
+
+      
     }
 }
