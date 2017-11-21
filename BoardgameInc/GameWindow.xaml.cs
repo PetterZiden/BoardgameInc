@@ -22,16 +22,14 @@ namespace BoardgameInc
     /// </summary>
     public partial class GameWindow : Window
     {
-        public GameWindow()
+
+        public LogicController lc;
+
+        public GameWindow(LogicController l)
         {
             InitializeComponent();
-            LogicController LC = new LogicController();
-            LC.GameLoop();
-        }
-
-        private void Window_MouseMove(object sender, MouseEventArgs e)
-        {
-            Title = e.GetPosition(this).ToString();
+            lc = l;
+            lc.GameLoop();
         }
     }
 }
