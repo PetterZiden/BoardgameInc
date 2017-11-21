@@ -16,6 +16,7 @@ namespace BoardgameInc.Logic_layer
             this.name = n;
         }
 
+        public abstract List<Ship> placeShips(int[] shipSizes);
         public abstract String getShotLoc();
         public abstract void getShotFeedback(int hitmarker, String gridLoc);
         

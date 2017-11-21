@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace BoardgameInc.Logic_layer
 {
-    class Ship
+    public class Ship
     {
 
-        private String type;
         private int size;
         private List<String> gridLocs;
 
-        public Ship(String t, int s, List<String> gl)
+        public Ship(int s, List<String> gl)
         {
-            this.type = t;
             this.size = s;
             gridLocs = new List<String>();
             this.gridLocs = gl;
@@ -37,16 +35,6 @@ namespace BoardgameInc.Logic_layer
             }
             return -1;
             
-        }
-
-        public String getType()
-        {
-            return this.type;
-        }
-
-        public void setType(String s)
-        {
-            this.type = s;
         }
 
         public int getSize()

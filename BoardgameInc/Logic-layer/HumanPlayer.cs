@@ -19,6 +19,12 @@ namespace BoardgameInc.Logic_layer
         }
 
         override
+            public List<Ship> placeShips(int[] shipSizes)
+        {
+            return null;
+        }
+
+        override
         public String getShotLoc()
         {
             Console.WriteLine(name + " Enter grid location to shoot at:");
