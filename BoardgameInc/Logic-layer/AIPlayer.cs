@@ -12,7 +12,6 @@ namespace BoardgameInc.Logic_layer
         private List<String> grid;
         private List<String> mediumPriority;
         private List<String> highPriority;
-        private string name;
         private int gridSizeX;
         private int gridSizeY;
         private Random rnd;
@@ -49,20 +48,21 @@ namespace BoardgameInc.Logic_layer
                 int[] gridLocations = new int[shipSizes[i]];
                 do
                 {
-                    int orientation = rnd.Next(0, 1);
+                    intersects = false;
+                    int orientation = rnd.Next(0, 2);
                     gridLocations[0] = rnd.Next(0, grid.Count - 1);
                     for (int j = 1; j < gridLocations.Length; j++)
                     {
                         int gridIndex = 0;
                         if (orientation == 0)
                         {
-                            gridIndex = gridLocations[j] + 1;
+                            gridIndex = gridLocations[j-1] + 1;
                         }
                         else
                         {
-                            gridIndex = gridLocations[j] + gridSizeY;
+                            gridIndex = gridLocations[j-1] + gridSizeY;
                         }
-                        if (gridIndex % gridSizeY != 0 && gridIndex % gridSizeY != gridSizeY)
+                        if (gridIndex % gridSizeY != 0 && gridIndex % gridSizeY != gridSizeY && gridIndex >= 0 && gridIndex < grid.Count)
                         {
                             gridLocations[j] = gridIndex;
                         }

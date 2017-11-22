@@ -29,7 +29,7 @@ namespace BoardgameInc.Logic_layer
         public void GameLoop()
         {
 
-            player2.placeShips(new int[] { 2, 3, 4 });
+            player2.placeShips(new int[] { 2, 3, 4, 4, 5 });
             List<Ship> ships = new List<Ship>();
             ships.Add(new Ship(2, new List<String>(new String[]{ "A3", "A4" })));
             ships.Add(new Ship(3, new List<String>(new String[]{ "C3", "C4", "C5" })));
@@ -61,7 +61,7 @@ namespace BoardgameInc.Logic_layer
 
                     break;
                     }
-            }
+            } 
         }
 
         private static void printOutput(int hitMarker)
