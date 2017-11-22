@@ -13,6 +13,7 @@ namespace BoardgameInc.UI_layer
         String player1;
         String player2;
         Window current;
+        int currentShipSize = 4;
 
 
         public UIController() {
@@ -51,6 +52,22 @@ namespace BoardgameInc.UI_layer
         public void setPlayer2(String n)
         {
             player2 = n;
+        }
+
+        public void setCurrentShipSize() {
+          
+            if (currentShipSize == 4)
+            {
+                currentShipSize = 2;
+            }
+            else {
+                currentShipSize++;
+            }
+        }
+
+        public int getCurrentShipSize()
+        {
+            return currentShipSize;
         }
 
     }

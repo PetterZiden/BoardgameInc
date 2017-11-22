@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="GameWindow" Height="600" Width="600">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="400" Margin="168,26,0,0" VerticalAlignment="Top" Width="400" ShowGridLines="False">
+        <Grid HorizontalAlignment="Left" Height="400" Margin="168,26,0,0" VerticalAlignment="Top" Width="400" ShowGridLines="False" Name="GameGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40*"/>
                 <RowDefinition Height="40*"/>
@@ -32,117 +32,118 @@
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Grid.Column="0" Background="Gray" Name="A1" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="1" Background="Gray" Name="A2" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="2" Background="Gray" Name="A3" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="3" Background="Gray" Name="A4" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="4" Background="Gray" Name="A5" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="5" Background="Gray" Name="A6" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="6" Background="Gray" Name="A7" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="7" Background="Gray" Name="A8" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="8" Background="Gray" Name="A9" BorderBrush="BlueViolet"/>
-            <Button Grid.Row="0" Grid.Column="9" Background="Gray" Name="A10" BorderBrush="BlueViolet"/>
+            <Button Grid.Row="0" Grid.Column="0" Background="Gray" Name="A1" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="1" Background="Gray" Name="A2" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="2" Background="Gray" Name="A3" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="3" Background="Gray" Name="A4" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="4" Background="Gray" Name="A5" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="5" Background="Gray" Name="A6" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="6" Background="Gray" Name="A7" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="7" Background="Gray" Name="A8" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="8" Background="Gray" Name="A9" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="0" Grid.Column="9" Background="Gray" Name="A10" BorderBrush="BlueViolet" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="1" Grid.Column="0" Background="Gray" Name="B1"/>
-            <Button Grid.Row="1" Grid.Column="1" Background="Gray" Name="B2"/>
-            <Button Grid.Row="1" Grid.Column="2" Background="Gray" Name="B3"/>
-            <Button Grid.Row="1" Grid.Column="3" Background="Gray" Name="B4"/>
-            <Button Grid.Row="1" Grid.Column="4" Background="Gray" Name="B5"/>
-            <Button Grid.Row="1" Grid.Column="5" Background="Gray" Name="B6"/>
-            <Button Grid.Row="1" Grid.Column="6" Background="Gray" Name="B7"/>
-            <Button Grid.Row="1" Grid.Column="7" Background="Gray" Name="B8"/>
-            <Button Grid.Row="1" Grid.Column="8" Background="Gray" Name="B9"/>
-            <Button Grid.Row="1" Grid.Column="9" Background="Gray" Name="B10"/>
+            <Button Grid.Row="1" Grid.Column="0" Background="Gray" Name="B1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="1" Background="Gray" Name="B2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="2" Background="Gray" Name="B3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="3" Background="Gray" Name="B4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="4" Background="Gray" Name="B5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="5" Background="Gray" Name="B6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="6" Background="Gray" Name="B7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="7" Background="Gray" Name="B8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="8" Background="Gray" Name="B9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="1" Grid.Column="9" Background="Gray" Name="B10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="2" Grid.Column="0" Background="Gray" Name="C1"/>
-            <Button Grid.Row="2" Grid.Column="1" Background="Gray" Name="C2"/>
-            <Button Grid.Row="2" Grid.Column="2" Background="Gray" Name="C3"/>
-            <Button Grid.Row="2" Grid.Column="3" Background="Gray" Name="C4"/>
-            <Button Grid.Row="2" Grid.Column="4" Background="Gray" Name="C5"/>
-            <Button Grid.Row="2" Grid.Column="5" Background="Gray" Name="C6"/>
-            <Button Grid.Row="2" Grid.Column="6" Background="Gray" Name="C7"/>
-            <Button Grid.Row="2" Grid.Column="7" Background="Gray" Name="C8"/>
-            <Button Grid.Row="2" Grid.Column="8" Background="Gray" Name="C9"/>
-            <Button Grid.Row="2" Grid.Column="9" Background="Gray" Name="C10"/>
+            <Button Grid.Row="2" Grid.Column="0" Background="Gray" Name="C1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="1" Background="Gray" Name="C2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="2" Background="Gray" Name="C3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="3" Background="Gray" Name="C4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="4" Background="Gray" Name="C5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="5" Background="Gray" Name="C6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="6" Background="Gray" Name="C7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="7" Background="Gray" Name="C8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="8" Background="Gray" Name="C9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="2" Grid.Column="9" Background="Gray" Name="C10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="3" Grid.Column="0" Background="Gray" Name="D1"/>
-            <Button Grid.Row="3" Grid.Column="1" Background="Gray" Name="D2"/>
-            <Button Grid.Row="3" Grid.Column="2" Background="Gray" Name="D3"/>
-            <Button Grid.Row="3" Grid.Column="3" Background="Gray" Name="D4"/>
-            <Button Grid.Row="3" Grid.Column="4" Background="Gray" Name="D5"/>
-            <Button Grid.Row="3" Grid.Column="5" Background="Gray" Name="D6"/>
-            <Button Grid.Row="3" Grid.Column="6" Background="Gray" Name="D7"/>
-            <Button Grid.Row="3" Grid.Column="7" Background="Gray" Name="D8"/>
-            <Button Grid.Row="3" Grid.Column="8" Background="Gray" Name="D9"/>
-            <Button Grid.Row="3" Grid.Column="9" Background="Gray" Name="D10"/>
+            <Button Grid.Row="3" Grid.Column="0" Background="Gray" Name="D1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="1" Background="Gray" Name="D2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="2" Background="Gray" Name="D3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="3" Background="Gray" Name="D4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="4" Background="Gray" Name="D5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="5" Background="Gray" Name="D6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="6" Background="Gray" Name="D7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="7" Background="Gray" Name="D8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="8" Background="Gray" Name="D9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="3" Grid.Column="9" Background="Gray" Name="D10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="4" Grid.Column="0" Background="Gray" Name="E1"/>
-            <Button Grid.Row="4" Grid.Column="1" Background="Gray" Name="E2"/>
-            <Button Grid.Row="4" Grid.Column="2" Background="Gray" Name="E3"/>
-            <Button Grid.Row="4" Grid.Column="3" Background="Gray" Name="E4"/>
-            <Button Grid.Row="4" Grid.Column="4" Background="Gray" Name="E5"/>
-            <Button Grid.Row="4" Grid.Column="5" Background="Gray" Name="E6"/>
-            <Button Grid.Row="4" Grid.Column="6" Background="Gray" Name="E7"/>
-            <Button Grid.Row="4" Grid.Column="7" Background="Gray" Name="E8"/>
-            <Button Grid.Row="4" Grid.Column="8" Background="Gray" Name="E9"/>
-            <Button Grid.Row="4" Grid.Column="9" Background="Gray" Name="E10"/>
+            <Button Grid.Row="4" Grid.Column="0" Background="Gray" Name="E1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="1" Background="Gray" Name="E2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="2" Background="Gray" Name="E3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="3" Background="Gray" Name="E4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="4" Background="Gray" Name="E5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="5" Background="Gray" Name="E6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="6" Background="Gray" Name="E7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="7" Background="Gray" Name="E8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="8" Background="Gray" Name="E9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="4" Grid.Column="9" Background="Gray" Name="E10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="5" Grid.Column="0" Background="Gray" Name="F1"/>
-            <Button Grid.Row="5" Grid.Column="1" Background="Gray" Name="F2"/>
-            <Button Grid.Row="5" Grid.Column="2" Background="Gray" Name="F3"/>
-            <Button Grid.Row="5" Grid.Column="3" Background="Gray" Name="F4"/>
-            <Button Grid.Row="5" Grid.Column="4" Background="Gray" Name="F5"/>
-            <Button Grid.Row="5" Grid.Column="5" Background="Gray" Name="F6"/>
-            <Button Grid.Row="5" Grid.Column="6" Background="Gray" Name="F7"/>
-            <Button Grid.Row="5" Grid.Column="7" Background="Gray" Name="F8"/>
-            <Button Grid.Row="5" Grid.Column="8" Background="Gray" Name="F9"/>
-            <Button Grid.Row="5" Grid.Column="9" Background="Gray" Name="F10"/>
+            <Button Grid.Row="5" Grid.Column="0" Background="Gray" Name="F1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="1" Background="Gray" Name="F2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="2" Background="Gray" Name="F3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="3" Background="Gray" Name="F4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="4" Background="Gray" Name="F5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="5" Background="Gray" Name="F6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="6" Background="Gray" Name="F7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="7" Background="Gray" Name="F8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="8" Background="Gray" Name="F9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="5" Grid.Column="9" Background="Gray" Name="F10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="6" Grid.Column="0" Background="Gray" Name="G1"/>
-            <Button Grid.Row="6" Grid.Column="1" Background="Gray" Name="G2"/>
-            <Button Grid.Row="6" Grid.Column="2" Background="Gray" Name="G3"/>
-            <Button Grid.Row="6" Grid.Column="3" Background="Gray" Name="G4"/>
-            <Button Grid.Row="6" Grid.Column="4" Background="Gray" Name="G5"/>
-            <Button Grid.Row="6" Grid.Column="5" Background="Gray" Name="G6"/>
-            <Button Grid.Row="6" Grid.Column="6" Background="Gray" Name="G7"/>
-            <Button Grid.Row="6" Grid.Column="7" Background="Gray" Name="G8"/>
-            <Button Grid.Row="6" Grid.Column="8" Background="Gray" Name="G9"/>
-            <Button Grid.Row="6" Grid.Column="9" Background="Gray" Name="G10"/>
+            <Button Grid.Row="6" Grid.Column="0" Background="Gray" Name="G1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="1" Background="Gray" Name="G2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="2" Background="Gray" Name="G3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="3" Background="Gray" Name="G4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="4" Background="Gray" Name="G5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="5" Background="Gray" Name="G6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="6" Background="Gray" Name="G7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="7" Background="Gray" Name="G8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="8" Background="Gray" Name="G9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="6" Grid.Column="9" Background="Gray" Name="G10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="7" Grid.Column="0" Background="Gray" Name="H1"/>
-            <Button Grid.Row="7" Grid.Column="1" Background="Gray" Name="H2"/>
-            <Button Grid.Row="7" Grid.Column="2" Background="Gray" Name="H3"/>
-            <Button Grid.Row="7" Grid.Column="3" Background="Gray" Name="H4"/>
-            <Button Grid.Row="7" Grid.Column="4" Background="Gray" Name="H5"/>
-            <Button Grid.Row="7" Grid.Column="5" Background="Gray" Name="H6"/>
-            <Button Grid.Row="7" Grid.Column="6" Background="Gray" Name="H7"/>
-            <Button Grid.Row="7" Grid.Column="7" Background="Gray" Name="H8"/>
-            <Button Grid.Row="7" Grid.Column="8" Background="Gray" Name="H9"/>
-            <Button Grid.Row="7" Grid.Column="9" Background="Gray" Name="H10"/>
+            <Button Grid.Row="7" Grid.Column="0" Background="Gray" Name="H1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="1" Background="Gray" Name="H2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="2" Background="Gray" Name="H3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="3" Background="Gray" Name="H4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="4" Background="Gray" Name="H5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="5" Background="Gray" Name="H6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="6" Background="Gray" Name="H7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="7" Background="Gray" Name="H8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="8" Background="Gray" Name="H9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="7" Grid.Column="9" Background="Gray" Name="H10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="8" Grid.Column="0" Background="Gray" Name="I1"/>
-            <Button Grid.Row="8" Grid.Column="1" Background="Gray" Name="I2"/>
-            <Button Grid.Row="8" Grid.Column="2" Background="Gray" Name="I3"/>
-            <Button Grid.Row="8" Grid.Column="3" Background="Gray" Name="I4"/>
-            <Button Grid.Row="8" Grid.Column="4" Background="Gray" Name="I5"/>
-            <Button Grid.Row="8" Grid.Column="5" Background="Gray" Name="I6"/>
-            <Button Grid.Row="8" Grid.Column="6" Background="Gray" Name="I7"/>
-            <Button Grid.Row="8" Grid.Column="7" Background="Gray" Name="I8"/>
-            <Button Grid.Row="8" Grid.Column="8" Background="Gray" Name="I9"/>
-            <Button Grid.Row="8" Grid.Column="9" Background="Gray" Name="I10"/>
+            <Button Grid.Row="8" Grid.Column="0" Background="Gray" Name="I1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="1" Background="Gray" Name="I2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="2" Background="Gray" Name="I3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="3" Background="Gray" Name="I4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="4" Background="Gray" Name="I5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="5" Background="Gray" Name="I6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="6" Background="Gray" Name="I7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="7" Background="Gray" Name="I8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="8" Background="Gray" Name="I9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="8" Grid.Column="9" Background="Gray" Name="I10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
-            <Button Grid.Row="9" Grid.Column="0" Background="Gray" Name="J1"/>
-            <Button Grid.Row="9" Grid.Column="1" Background="Gray" Name="J2"/>
-            <Button Grid.Row="9" Grid.Column="2" Background="Gray" Name="J3"/>
-            <Button Grid.Row="9" Grid.Column="3" Background="Gray" Name="J4"/>
-            <Button Grid.Row="9" Grid.Column="4" Background="Gray" Name="J5"/>
-            <Button Grid.Row="9" Grid.Column="5" Background="Gray" Name="J6"/>
-            <Button Grid.Row="9" Grid.Column="6" Background="Gray" Name="J7"/>
-            <Button Grid.Row="9" Grid.Column="7" Background="Gray" Name="J8"/>
-            <Button Grid.Row="9" Grid.Column="8" Background="Gray" Name="J9"/>
-            <Button Grid.Row="9" Grid.Column="9" Background="Gray" Name="J10"/>
+            <Button Grid.Row="9" Grid.Column="0" Background="Gray" Name="J1" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="1" Background="Gray" Name="J2" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="2" Background="Gray" Name="J3" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="3" Background="Gray" Name="J4" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="4" Background="Gray" Name="J5" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="5" Background="Gray" Name="J6" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="6" Background="Gray" Name="J7" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="7" Background="Gray" Name="J8" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="8" Background="Gray" Name="J9" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
+            <Button Grid.Row="9" Grid.Column="9" Background="Gray" Name="J10" MouseEnter="btn_MouseEnter" MouseLeave="btn_MouseLeave" />
 
         </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="50" Width="89" Name="posOutput"/>
 
 
     </Grid>
