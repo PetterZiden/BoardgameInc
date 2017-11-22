@@ -1,4 +1,5 @@
 ﻿using BoardgameInc.Logic_layer;
+using BoardgameInc.UI_layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,12 @@ namespace BoardgameInc
     public partial class GameWindow : Window
     {
 
-        public LogicController lc;
+        public UIController controller;
 
-        public GameWindow(LogicController l)
+        public GameWindow(UIController c)
         {
             InitializeComponent();
-            lc = l;
-            lc.GameLoop();
+            controller = c;
         }
 
       

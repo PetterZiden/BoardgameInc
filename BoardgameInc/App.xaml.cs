@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardgameInc.Logic_layer;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,11 @@ namespace BoardgameInc
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+
+            base.OnStartup(e);
+            LogicController lc = new LogicController();
+        }
     }
 }

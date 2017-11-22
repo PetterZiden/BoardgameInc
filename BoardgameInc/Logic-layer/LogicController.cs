@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardgameInc.UI_layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,24 +13,17 @@ namespace BoardgameInc.Logic_layer
         Player player2;
         int playerAmount;
 
-        public LogicController(int pa, String n)
+        public LogicController()
         {
-            player1 = new HumanPlayer(n);
-            player2 = new AIPlayer("AI");
-            playerAmount = pa;
+            UIController ui = new UIController();
+            ui.startApp();
         }
 
-        public LogicController(int pa, String n1, String n2)
-        {
-            player1 = new HumanPlayer(n1);
-            player2 = new HumanPlayer(n2);
-            playerAmount = pa;
-        }
 
         public void GameLoop()
         {
 
-            player2.placeShips(new int[] { 2, 3, 4, 4, 5 });
+            player2.placeShips(new int[] { 2, 3, 4});
             List<Ship> ships = new List<Ship>();
             ships.Add(new Ship(2, new List<String>(new String[]{ "A3", "A4" })));
             ships.Add(new Ship(3, new List<String>(new String[]{ "C3", "C4", "C5" })));

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BoardgameInc.Logic_layer;
+using BoardgameInc.UI_layer;
 
 namespace BoardgameInc
 {
@@ -21,19 +22,19 @@ namespace BoardgameInc
     /// </summary>
     public partial class MainWindow : Window
     {
-        int playerAmount;
-        String player1;
-        String player2;
+        UIController controller;
 
-        public MainWindow()
+        public MainWindow(UIController c)
         {
             InitializeComponent();
+            controller = c;
         }
 
         private void playerAmountInput(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            playerAmount = Convert.ToInt32(button.Tag);
+            int playerAmount = Convert.ToInt32(button.Tag);
+            controller.setPlayerAmount(playerAmount);
             onePlayerButton.Visibility = System.Windows.Visibility.Hidden;
             twoPlayerButton.Visibility = System.Windows.Visibility.Hidden;
             playerOneName.Visibility = System.Windows.Visibility.Visible;
@@ -42,13 +43,10 @@ namespace BoardgameInc
         
         private void onePlayerInput(object sender, RoutedEventArgs e)
         {
-            player1 = playerOneName.Text;
-            if(playerAmount == 1)
+            controller.setPlayer1(playerOneName.Text);
+            if(controller.getPlayerAmount() == 1)
             {
-                LogicController lc = new LogicController(playerAmount, player1);
-                GameWindow gw = new GameWindow(lc);
-                gw.Show();
-                this.Close();
+                controller.switchView(new GameWindow(controller)); 
             }
             else
             {
@@ -61,12 +59,9 @@ namespace BoardgameInc
 
         private void twoPlayerInput(object sender, RoutedEventArgs e)
         {
-            player2 = playerTwoName.Text;
-            LogicController lc = new LogicController(playerAmount, player1, player2);
-            GameWindow gw = new GameWindow(lc);
+            controller.setPlayer2(playerTwoName.Text);
+            controller.switchView(new GameWindow(controller));
             
-            gw.Show();
-            this.Close();
         }
 
     
