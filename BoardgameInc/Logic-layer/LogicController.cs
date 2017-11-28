@@ -23,20 +23,10 @@ namespace BoardgameInc.Logic_layer
         public void GameLoop()
         {
 
-            player2.placeShips(new int[] { 2, 3, 4});
-            List<Ship> ships = new List<Ship>();
-            ships.Add(new Ship(2, new List<String>(new String[]{ "A3", "A4" })));
-            ships.Add(new Ship(3, new List<String>(new String[]{ "C3", "C4", "C5" })));
-            ships.Add(new Ship( 4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" })));
-            PlayField playfield1 = new PlayField(ships);
+            PlayField playfield1 = new PlayField(player1.placeShips(new int[] { 2, 3, 4 }));
+            PlayField playfield2 = new PlayField(player2.placeShips(new int[] { 2, 3, 4 }));
 
-            ships = new List<Ship>();
-            ships.Add(new Ship(2, new List<String>(new String[]{ "A3", "A4" })));
-            ships.Add(new Ship(3, new List<String>(new String[]{ "C3", "C4", "C5" })));
-            ships.Add(new Ship(4, new List<String>(new String[]{ "E5", "E6", "E7", "E8" })));
-            PlayField playfield2 = new PlayField(ships);
-
-            String input;
+            int input;
             int hitMarker;
             while(true) {
                 input = player1.getShotLoc();

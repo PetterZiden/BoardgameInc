@@ -10,12 +10,12 @@ namespace BoardgameInc.Logic_layer
     {
 
         private int size;
-        private List<String> gridLocs;
+        private List<int> gridLocs;
 
-        public Ship(int s, List<String> gl)
+        public Ship(int s, List<int> gl)
         {
             this.size = s;
-            gridLocs = new List<String>();
+            gridLocs = new List<int>();
             this.gridLocs = gl;
         }
 
@@ -23,13 +23,13 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-        public int checkHit(String loc)
+        public int checkHit(int loc)
         {
-            foreach(String s in gridLocs)
+            foreach(int i in gridLocs)
             {
-                if (loc.Equals(s))
+                if (loc == i)
                 {
-                    gridLocs.Remove(s);
+                    gridLocs.Remove(i);
                     return gridLocs.Count;
                 }
             }
@@ -47,12 +47,12 @@ namespace BoardgameInc.Logic_layer
             this.size = i;
         }
 
-        public List<String> getGridlocs()
+        public List<int> getGridlocs()
         {
             return this.gridLocs;
         }
 
-        public void setGridlocs(List<String> s)
+        public void setGridlocs(List<int> s)
         {
             this.gridLocs = s;
         }

@@ -10,6 +10,7 @@ namespace BoardgameInc.Logic_layer
     public abstract class Player
     {
         protected String name;
+        protected List<List<int>> shipLocs;
 
         public Player(string n)
         {
@@ -17,8 +18,8 @@ namespace BoardgameInc.Logic_layer
         }
 
         public abstract List<Ship> placeShips(int[] shipSizes);
-        public abstract String getShotLoc();
-        public abstract void getShotFeedback(int hitmarker, String gridLoc);
+        public abstract int getShotLoc();
+        public abstract void getShotFeedback(int hitmarker, int gridLoc);
         
         public String getName()
         {
@@ -28,7 +29,12 @@ namespace BoardgameInc.Logic_layer
         public void setName(String n)
         {
             this.name = n;
-        } 
+        }
+        
+        public void setShipLoc(List<int> locs)
+        {
+            shipLocs.Add(locs);
+        }
     }
 
 }

@@ -13,6 +13,7 @@ namespace BoardgameInc.UI_layer
         int playerAmount;
         Player player1;
         Player player2;
+        Player activePlayer;
         Window current;
         LogicController lc;
         int currentShipSize = 2;
@@ -20,6 +21,7 @@ namespace BoardgameInc.UI_layer
 
         public UIController(LogicController c) {
             lc = c;
+            activePlayer = player1;
         }
 
         public void startApp()
@@ -34,6 +36,24 @@ namespace BoardgameInc.UI_layer
             view.Show();
             current.Close();
             current = view;
+        }
+
+        public void setShip(List<int> shipLocs)
+        {
+            activePlayer.setShipLoc(shipLocs);
+            if(currentShipSize < 4)
+            {
+                currentShipSize++;
+            }
+            else if(playerAmount == 2 && activePlayer.GetType() == typeof(HumanPlayer)) 
+            {
+                activePlayer = player2;
+                currentShipSize = 2;
+            }
+            else
+            {
+                switchView(new GameWindow(this));
+            }
         }
 
         public void setPlayerAmount(int a)

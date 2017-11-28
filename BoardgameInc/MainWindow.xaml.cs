@@ -60,7 +60,7 @@ namespace BoardgameInc
         private void twoPlayerInput(object sender, RoutedEventArgs e)
         {
             controller.setPlayers(playerOneName.Text, playerTwoName.Text);
-            controller.switchView(new GameWindow(controller));
+            controller.switchView(new ShipSelectWindow(controller));
             
         }
 

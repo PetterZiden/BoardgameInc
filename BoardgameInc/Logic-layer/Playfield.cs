@@ -22,7 +22,7 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-       public int checkHit(String loc) {
+       public int checkHit(int loc) {
 
             for (int i = 0; i < ships.Count; i++) {
                 int checkIfHit = ships[i].checkHit(loc);

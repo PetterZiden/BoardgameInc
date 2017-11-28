@@ -18,22 +18,27 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-        override
+            override
             public List<Ship> placeShips(int[] shipSizes)
         {
-            return null;
+            List<Ship> ships = new List<Ship>();
+            for(int i = 0; i < shipLocs.Count; i++)
+            {
+                ships.Add(new Ship(shipSizes[i], shipLocs[i]));
+            }
+            return ships;
         }
 
         override
-        public String getShotLoc()
+        public int getShotLoc()
         {
             Console.WriteLine(name + " Enter grid location to shoot at:");
-            String gridLoc = Console.ReadLine();
-            return gridLoc;
+            //int gridLoc = Console.ReadLine();
+            return 0;
         }
 
         override
-        public void getShotFeedback(int hitmarker, String gridLoc)
+        public void getShotFeedback(int hitmarker, int gridLoc)
         {
         }
 

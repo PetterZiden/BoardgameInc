@@ -41,7 +41,7 @@ namespace BoardgameInc.Logic_layer
             public List<Ship> placeShips(int[] shipSizes)
         {
             List<Ship> ships = new List<Ship>();
-            List<int> usedLocations = new List<int>();
+            /*List<int> usedLocations = new List<int>();
             for (int i = 0; i < shipSizes.Length; i++)
             {
                 Boolean intersects = false;
@@ -82,7 +82,7 @@ namespace BoardgameInc.Logic_layer
 
                 } while (intersects) ;
                 usedLocations.AddRange(gridLocations);
-                List<string> shipLocations = new List<string>();
+                List<int> shipLocations = new List<int>();
                 for(int j = 0; j < gridLocations.Length; j++)
                 {
                     Console.WriteLine(grid[gridLocations[j]]);
@@ -90,7 +90,7 @@ namespace BoardgameInc.Logic_layer
                 }
                 ships.Add(new Ship(shipSizes[i], shipLocations));
 
-            }
+            } */
             
             return ships;
 
@@ -98,39 +98,39 @@ namespace BoardgameInc.Logic_layer
 
 
     override
-        public String getShotLoc()
+        public int getShotLoc()
     {
-        Console.WriteLine(name + " Enter grid location to shoot at:");
-        int locIndex;
-        if (highPriority.Count != 0)
-        {
-            locIndex = rnd.Next(0, highPriority.Count - 1);
-            int gridIndex = grid.IndexOf(highPriority[locIndex]);
-            Console.WriteLine(highPriority[locIndex]);
-            return highPriority[locIndex];
-        }
-        else if (mediumPriority.Count != 0)
-        {
-            locIndex = rnd.Next(0, mediumPriority.Count - 1);
-            Console.WriteLine(mediumPriority[locIndex]);
-            return mediumPriority[locIndex];
-        }
-        else
-        {
-            do
+            /*Console.WriteLine(name + " Enter grid location to shoot at:");
+            int locIndex;
+            if (highPriority.Count != 0)
             {
-                locIndex = rnd.Next(0, grid.Count - 1);
-            } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex].Equals("HIT") || grid[locIndex].Equals("MISS"));
-            Console.WriteLine(grid[locIndex]);
-            return grid[locIndex];
+                locIndex = rnd.Next(0, highPriority.Count - 1);
+                int gridIndex = grid.IndexOf(highPriority[locIndex]);
+                Console.WriteLine(highPriority[locIndex]);
+                return highPriority[locIndex];
+            }
+            else if (mediumPriority.Count != 0)
+            {
+                locIndex = rnd.Next(0, mediumPriority.Count - 1);
+                Console.WriteLine(mediumPriority[locIndex]);
+                return mediumPriority[locIndex];
+            }
+            else
+            {
+                do
+                {
+                    locIndex = rnd.Next(0, grid.Count - 1);
+                } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex].Equals("HIT") || grid[locIndex].Equals("MISS"));
+                Console.WriteLine(grid[locIndex]); 
+                return 0;
+            } */
+            return 0;
         }
-
-    }
 
     override
-        public void getShotFeedback(int hitMarker, String gridLoc)
+        public void getShotFeedback(int hitMarker, int gridLoc)
     {
-        int gridIndex = grid.IndexOf(gridLoc);
+        /*int gridIndex = grid.IndexOf(gridLoc);
         if (highPriority.Contains(gridLoc))
         {
             highPriority.Remove(gridLoc);
@@ -231,8 +231,8 @@ namespace BoardgameInc.Logic_layer
                 grid[gridIndex] = "MISS";
             }
         }
-
-    }
+        */
+    } 
 
 }
 }
