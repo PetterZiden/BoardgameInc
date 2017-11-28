@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoardgameInc.Logic_layer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,15 @@ namespace BoardgameInc.UI_layer
     public class UIController
     {
         int playerAmount;
-        String player1;
-        String player2;
+        Player player1;
+        Player player2;
         Window current;
-        int currentShipSize = 4;
+        LogicController lc;
+        int currentShipSize = 2;
 
 
-        public UIController() {
-            
+        public UIController(LogicController c) {
+            lc = c;
         }
 
         public void startApp()
@@ -44,14 +46,31 @@ namespace BoardgameInc.UI_layer
             return playerAmount;
         }
 
-        public void setPlayer1(String n)
+        public void setPlayers(String n1, String n2)
         {
-            player1 = n;
+            player1 = new HumanPlayer(n1);
+
+            if(playerAmount == 1)
+            {
+                player2 = new AIPlayer("AI");
+            }
+            else
+            {
+                player2 = new HumanPlayer(n2);
+            }
+
+            lc.setPlayers(player1, player2);
+
         }
 
-        public void setPlayer2(String n)
+        public String getPlayer1Name()
         {
-            player2 = n;
+            return player1.getName();
+        }
+
+        public String getPlayer2Name()
+        {
+            return player2.getName();
         }
 
         public void setCurrentShipSize() {

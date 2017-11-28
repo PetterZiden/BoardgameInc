@@ -43,9 +43,9 @@ namespace BoardgameInc
         
         private void onePlayerInput(object sender, RoutedEventArgs e)
         {
-            controller.setPlayer1(playerOneName.Text);
             if(controller.getPlayerAmount() == 1)
             {
+                controller.setPlayers(playerOneName.Text, "");
                 controller.switchView(new GameWindow(controller)); 
             }
             else
@@ -59,7 +59,7 @@ namespace BoardgameInc
 
         private void twoPlayerInput(object sender, RoutedEventArgs e)
         {
-            controller.setPlayer2(playerTwoName.Text);
+            controller.setPlayers(playerOneName.Text, playerTwoName.Text);
             controller.switchView(new GameWindow(controller));
             
         }
