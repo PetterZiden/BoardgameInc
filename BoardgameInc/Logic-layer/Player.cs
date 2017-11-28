@@ -15,6 +15,7 @@ namespace BoardgameInc.Logic_layer
         public Player(string n)
         {
             this.name = n;
+            shipLocs = new List<List<int>>();
         }
 
         public abstract List<Ship> placeShips(int[] shipSizes);

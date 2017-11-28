@@ -17,6 +17,7 @@ namespace BoardgameInc.UI_layer
         Window current;
         LogicController lc;
         int currentShipSize = 2;
+        int counter = 1;
 
 
         public UIController(LogicController c) {
@@ -44,15 +45,18 @@ namespace BoardgameInc.UI_layer
             if(currentShipSize < 4)
             {
                 currentShipSize++;
+                
             }
-            else if(playerAmount == 2 && activePlayer.GetType() == typeof(HumanPlayer)) 
+            else if(playerAmount > counter && activePlayer.GetType() == typeof(HumanPlayer)) 
             {
                 activePlayer = player2;
                 currentShipSize = 2;
+                counter++;
             }
             else
             {
                 switchView(new GameWindow(this));
+                lc.GameLoop();
             }
         }
 
@@ -69,6 +73,7 @@ namespace BoardgameInc.UI_layer
         public void setPlayers(String n1, String n2)
         {
             player1 = new HumanPlayer(n1);
+            activePlayer = player1;
 
             if(playerAmount == 1)
             {
@@ -83,14 +88,9 @@ namespace BoardgameInc.UI_layer
 
         }
 
-        public String getPlayer1Name()
+        public String getActivePlayerName()
         {
-            return player1.getName();
-        }
-
-        public String getPlayer2Name()
-        {
-            return player2.getName();
+            return activePlayer.getName();
         }
 
         public void setCurrentShipSize() {

@@ -46,7 +46,7 @@ namespace BoardgameInc
             if(controller.getPlayerAmount() == 1)
             {
                 controller.setPlayers(playerOneName.Text, "");
-                controller.switchView(new GameWindow(controller)); 
+                controller.switchView(new ShipSelectWindow(controller)); 
             }
             else
             {

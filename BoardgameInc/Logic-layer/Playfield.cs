@@ -63,7 +63,7 @@ namespace BoardgameInc.Logic_layer
             }
         }
 
-        public void setShips(int i)
+        public void setShipsLeft(int i)
         {
             this.shipsLeft = i;
         }
