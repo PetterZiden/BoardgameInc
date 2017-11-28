@@ -123,14 +123,14 @@ namespace BoardgameInc
             int row = Grid.GetRow(current);
             int col = Grid.GetColumn(current);
 
-            current.Background = Brushes.Aquamarine;
+            current.Background = Brushes.Black;
           
             if (Alignment.Text.Equals("Horizontal")) {
                 for(int i = 1; i < controller.getCurrentShipSize(); i++) {
                     if (col + i < 10)
                     {
                         Button temp1 = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == row && Grid.GetColumn(x) == col + i).FirstOrDefault();
-                        temp1.Background = Brushes.Aquamarine;
+                        temp1.Background = Brushes.IndianRed;
                         activeButtons.Add(temp1);
                     }
                 }
@@ -142,7 +142,7 @@ namespace BoardgameInc
                     if (row + i < 10)
                     {
                         Button temp1 = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == row + i && Grid.GetColumn(x) == col).FirstOrDefault();
-                        temp1.Background = Brushes.Aquamarine;
+                        temp1.Background = Brushes.IndianRed;
                         activeButtons.Add(temp1);
                     }
                 }
@@ -160,7 +160,7 @@ namespace BoardgameInc
             }
             foreach (Button b in placedShips)
             {
-                b.Background = Brushes.Aquamarine;
+                b.Background = Brushes.IndianRed;
             }
             activeButtons.Clear();
 
