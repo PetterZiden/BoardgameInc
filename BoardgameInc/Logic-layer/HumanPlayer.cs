@@ -32,9 +32,7 @@ namespace BoardgameInc.Logic_layer
         override
         public int getShotLoc()
         {
-            Console.WriteLine(name + " Enter grid location to shoot at:");
-            //int gridLoc = Console.ReadLine();
-            return 0;
+            return input;
         }
 
         override

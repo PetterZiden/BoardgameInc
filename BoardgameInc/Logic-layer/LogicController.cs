@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace BoardgameInc.Logic_layer
 {
@@ -11,7 +12,10 @@ namespace BoardgameInc.Logic_layer
     {
         Player player1;
         Player player2;
-        int playerAmount;
+        PlayField playfield1;
+        PlayField playfield2;
+        Player activePlayer;
+        PlayField activePlayfield;
         UIController ui;
 
         public LogicController()
@@ -20,32 +24,46 @@ namespace BoardgameInc.Logic_layer
         }
 
 
-        public void GameLoop()
+        public void StartGame()
         {
 
-            PlayField playfield1 = new PlayField(player1.placeShips(new int[] { 2, 3, 4 }));
-            PlayField playfield2 = new PlayField(player2.placeShips(new int[] { 2, 3, 4 }));
+            playfield1 = new PlayField(player1.placeShips(new int[] { 2, 3, 4 }));
+            playfield2 = new PlayField(player2.placeShips(new int[] { 2, 3, 4 }));
+            activePlayer = player1;
+            activePlayfield = playfield2;
 
-            int input;
-            int hitMarker;
-            while(true) {
-                input = player1.getShotLoc();
-                hitMarker = playfield2.checkHit(input);
-                player1.getShotFeedback(hitMarker, input);
-                printOutput(hitMarker);
-                if(!playfield2.getShipsLeft()) {
+        }
 
-                    break;
-                    }
-                input = player2.getShotLoc();
-                hitMarker = playfield1.checkHit(input);
-                player2.getShotFeedback(hitMarker, input);
-                printOutput(hitMarker);
-                if (!playfield1.getShipsLeft()) {
+        public void shotInput(int input)
+        {
+            int hitMarker = activePlayfield.checkHit(input);
+            activePlayer.getShotFeedback(hitMarker, input);
+            List<int> grid = activePlayfield.getGrid();
+            if(activePlayer == player1)
+            {
+                activePlayer = player2;
+                activePlayfield = playfield1;
+            }
+            else
+            {
+                activePlayer = player1;
+                activePlayfield = playfield2;
+            }
+            ui.updateGrid(grid);
+            Thread.Sleep(3000);
+            ui.updateGrid(activePlayfield.getGrid());
+            if (activePlayer.GetType() == typeof(AIPlayer))
+            {
+                Thread.Sleep(1000);
+                shotInput(activePlayer.getShotLoc());
+            }
+            
+            
+        }
 
-                    break;
-                    }
-            } 
+        public List<int> getActivePlayfield()
+        {
+            return activePlayfield.getGrid();
         }
 
         private static void printOutput(int hitMarker)
@@ -73,6 +91,7 @@ namespace BoardgameInc.Logic_layer
         {
             player1 = p1;
             player2 = p2;
+            
         }
 
     }

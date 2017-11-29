@@ -11,11 +11,17 @@ namespace BoardgameInc.Logic_layer
     class PlayField
     {
         private List<Ship> ships;
+        private List<int> grid; 
         private int shipsLeft;
 
         public PlayField(List<Ship> s) {
             this.ships = s;
             shipsLeft = 3;
+            grid = new List<int>();
+            for(int i = 0; i < 100; i++)
+            {
+                grid.Add(0);
+            }
         }
 
         ~PlayField()
@@ -28,12 +34,17 @@ namespace BoardgameInc.Logic_layer
                 int checkIfHit = ships[i].checkHit(loc);
                 if (checkIfHit >= 0)
                 {
+                    grid[loc] = 1;
                     if (checkIfHit == 0)
                     {
                         ships.RemoveAt(i);
                         shipsLeft--;
                     }
                     return checkIfHit;
+                }
+                else
+                {
+                    grid[loc] = 2;
                 }
                 
             }
@@ -66,6 +77,11 @@ namespace BoardgameInc.Logic_layer
         public void setShipsLeft(int i)
         {
             this.shipsLeft = i;
+        }
+
+        public List<int> getGrid()
+        {
+            return grid;
         }
     }
 }

@@ -118,7 +118,7 @@ namespace BoardgameInc.Logic_layer
                 {
                     locIndex = rnd.Next(0, grid.Count - 1);
                 } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex] || grid[locIndex]);
-                Console.WriteLine(grid[locIndex]); 
+                Console.WriteLine(locIndex); 
                 return locIndex;
             }
         }

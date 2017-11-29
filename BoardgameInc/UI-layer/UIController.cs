@@ -39,6 +39,19 @@ namespace BoardgameInc.UI_layer
             current = view;
         }
 
+        public int nextShotInput(int input)
+        {
+            lc.shotInput(input);
+            
+            return 0;
+        }
+
+        public void updateGrid(List<int> grid)
+        {
+            current.updateGrid(grid);
+        }
+       
+
         public void setShip(List<int> shipLocs)
         {
             activePlayer.setShipLoc(shipLocs);
