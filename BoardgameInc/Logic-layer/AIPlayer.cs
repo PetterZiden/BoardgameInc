@@ -8,7 +8,7 @@ namespace BoardgameInc.Logic_layer
 {
     public class AIPlayer : Player
     {
-        private List<String> grid;
+        private List<Boolean> grid;
         private List<int> mediumPriority;
         private List<int> highPriority;
         private int gridSizeX;
@@ -18,7 +18,7 @@ namespace BoardgameInc.Logic_layer
         public AIPlayer(String n)
             : base(n)
         {
-            grid = new List<string>();
+            grid = new List<Boolean>();
             mediumPriority = new List<int>();
             highPriority = new List<int>();
             rnd = new Random();
@@ -28,7 +28,7 @@ namespace BoardgameInc.Logic_layer
 
             for (int i = 0; i < gridSizeX * gridSizeY; i++)
             {
-                grid.Add(Convert.ToString(i));
+                grid.Add(false);
             }
         }
 
@@ -103,8 +103,7 @@ namespace BoardgameInc.Logic_layer
             if (highPriority.Count != 0)
             {
                 locIndex = rnd.Next(0, highPriority.Count - 1);
-                int gridIndex = grid.IndexOf(Convert.ToString(highPriority[locIndex]));
-                Console.WriteLine(highPriority[locIndex]);
+                int gridIndex = highPriority[locIndex];
                 return highPriority[locIndex];
             }
             else if (mediumPriority.Count != 0)
@@ -118,117 +117,95 @@ namespace BoardgameInc.Logic_layer
                 do
                 {
                     locIndex = rnd.Next(0, grid.Count - 1);
-                } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex].Equals("HIT") || grid[locIndex].Equals("MISS"));
+                } while (((locIndex / 10) % 2 == 0 && locIndex % 2 == 0) || ((locIndex / 10) % 2 == 1 && locIndex % 2 == 1) || grid[locIndex] || grid[locIndex]);
                 Console.WriteLine(grid[locIndex]); 
-                return 0;
+                return locIndex;
             }
-            return 0;
         }
 
     override
-        public void getShotFeedback(int hitMarker, int gridLoc)
-    {
-        int gridIndex = grid.IndexOf(Convert.ToString(gridLoc));
-        if (highPriority.Contains(gridLoc))
+        public void getShotFeedback(int hitMarker, int gridIndex)
         {
-            highPriority.Remove(gridLoc);
-            if (hitMarker > 0)
+            grid[gridIndex] = true;
+            if (highPriority.Contains(gridIndex))
             {
-                grid[gridIndex] = "HIT";
-                if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1].Equals("HIT") && !grid[gridIndex + 1].Equals("MISS") && (gridIndex - 1) % gridSizeY != gridSizeY && grid[gridIndex - 1].Equals("HIT"))
+                highPriority.Remove(gridIndex);
+                if (hitMarker > 0)
                 {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex + 1]));
+                    if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1] && (gridIndex - 1) % gridSizeY != gridSizeY && grid[gridIndex - 1])
+                    {
+                        highPriority.Add(gridIndex + 1);
+                    }
+                    if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1] && (gridIndex + 1) % gridSizeY != 0 && grid[gridIndex + 1])
+                    {
+                        highPriority.Add(gridIndex - 1);
+                    }
+                    if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY] && (gridIndex - gridSizeY) >= 0 && grid[gridIndex - gridSizeY])
+                    {
+                        highPriority.Add(gridIndex + gridSizeY);
+                    }
+                    if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY] && (gridIndex + gridSizeY) <= gridSizeX * gridSizeY && grid[gridIndex + gridSizeY])
+                    {
+                        highPriority.Add(gridIndex - gridSizeY);
+                    }
                 }
-                if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1].Equals("HIT") && !grid[gridIndex - 1].Equals("MISS") && (gridIndex + 1) % gridSizeY != 0 && grid[gridIndex + 1].Equals("HIT"))
+                else if (hitMarker == 0)
                 {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex - 1]));
-                }
-                if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY].Equals("HIT") && !grid[gridIndex + gridSizeY].Equals("MISS") && (gridIndex - gridSizeY) >= 0 && grid[gridIndex - gridSizeY].Equals("HIT"))
-                {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex + gridSizeY]));
-                }
-                if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY].Equals("HIT") && !grid[gridIndex - gridSizeY].Equals("MISS") && (gridIndex + gridSizeY) <= gridSizeX * gridSizeY && grid[gridIndex + gridSizeY].Equals("HIT"))
-                {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex - gridSizeY]));
+                    highPriority.Clear();
+                    mediumPriority.Clear();
                 }
             }
-            else if (hitMarker == 0)
+            else if (mediumPriority.Contains(gridIndex))
             {
-                grid[gridIndex] = "HIT";
-                highPriority.Clear();
-                mediumPriority.Clear();
-            }
-            else
-            {
-                grid[gridIndex] = "MISS";
-            }
-        }
-        else if (mediumPriority.Contains(gridLoc))
-        {
-            mediumPriority.Remove(gridLoc);
-            if (hitMarker > 0)
-            {
-                grid[gridIndex] = "HIT";
-                if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1].Equals("HIT") && !grid[gridIndex + 1].Equals("MISS") && (gridIndex - 1) % gridSizeY != gridSizeY && grid[gridIndex - 1].Equals("HIT"))
+                mediumPriority.Remove(gridIndex);
+                if (hitMarker > 0)
                 {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex + 1]));
-                }
-                if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1].Equals("HIT") && !grid[gridIndex - 1].Equals("MISS") && (gridIndex + 1) % gridSizeY != 0 && grid[gridIndex + 1].Equals("HIT"))
-                {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex - 1]));
-                }
-                if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY].Equals("HIT") && !grid[gridIndex + gridSizeY].Equals("MISS") && (gridIndex - gridSizeY) >= 0 && grid[gridIndex - gridSizeY].Equals("HIT"))
-                {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex + gridSizeY]));
-                }
-                if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY].Equals("HIT") && !grid[gridIndex - gridSizeY].Equals("MISS") && (gridIndex + gridSizeY) <= gridSizeX * gridSizeY && grid[gridIndex + gridSizeY].Equals("HIT"))
-                {
-                    highPriority.Add(Convert.ToInt32(grid[gridIndex - gridSizeY]));
-                }
+                    if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1] && (gridIndex - 1) % gridSizeY != gridSizeY && grid[gridIndex - 1])
+                    {
+                        highPriority.Add(gridIndex + 1);
+                    }
+                    if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1] && !grid[gridIndex - 1] && (gridIndex + 1) % gridSizeY != 0 && grid[gridIndex + 1])
+                    {
+                        highPriority.Add(gridIndex - 1);
+                    }
+                    if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY] && (gridIndex - gridSizeY) >= 0 && grid[gridIndex - gridSizeY])
+                    {
+                        highPriority.Add(gridIndex + gridSizeY);
+                    }
+                    if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY] && (gridIndex + gridSizeY) <= gridSizeX * gridSizeY && grid[gridIndex + gridSizeY])
+                    {
+                        highPriority.Add(gridIndex - gridSizeY);
+                    }
 
-            }
-            else if (hitMarker == 0)
-            {
-                grid[gridIndex] = "HIT";
-                mediumPriority.Clear();
+                }
+                else if (hitMarker == 0)
+                {
+                    mediumPriority.Clear();
+                }
             }
             else
             {
-                grid[gridIndex] = "MISS";
-            }
-        }
-        else
-        {
-            if (hitMarker > 0)
-            {
-                grid[gridIndex] = "HIT";
-                if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1].Equals("HIT") && !grid[gridIndex + 1].Equals("MISS"))
+                if (hitMarker > 0)
                 {
-                    mediumPriority.Add(Convert.ToInt32(grid[gridIndex + 1]));
+                    if ((gridIndex + 1) % gridSizeY != 0 && !grid[gridIndex + 1])
+                    {
+                        mediumPriority.Add(gridIndex + 1);
+                    }
+                    if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1])
+                    {
+                        mediumPriority.Add(gridIndex - 1);
+                    }
+                    if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY])
+                    {
+                        mediumPriority.Add(gridIndex + gridSizeY);
+                    }
+                    if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY])
+                    {
+                        mediumPriority.Add(gridIndex - gridSizeY);
+                    }
                 }
-                if ((gridIndex - 1) % gridSizeY != gridSizeY && !grid[gridIndex - 1].Equals("HIT") && !grid[gridIndex - 1].Equals("MISS"))
-                {
-                    mediumPriority.Add(Convert.ToInt32(grid[gridIndex - 1]));
-                }
-                if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY].Equals("HIT") && !grid[gridIndex + gridSizeY].Equals("MISS"))
-                {
-                    mediumPriority.Add(Convert.ToInt32(grid[gridIndex + gridSizeY]));
-                }
-                if ((gridIndex - gridSizeY) >= 0 && !grid[gridIndex - gridSizeY].Equals("HIT") && !grid[gridIndex - gridSizeY].Equals("MISS"))
-                {
-                    mediumPriority.Add(Convert.ToInt32(grid[gridIndex - gridSizeY]));
-                }
+             
             }
-            else if (hitMarker == 0)
-            {
-                grid[gridIndex] = "HIT";
-
-            }
-            else
-            {
-                grid[gridIndex] = "MISS";
-            }
-        }
         
     } 
 
