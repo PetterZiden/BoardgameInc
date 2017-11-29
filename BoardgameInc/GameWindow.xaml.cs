@@ -63,15 +63,15 @@ namespace BoardgameInc
           
         }
 
-        private void btn_setImage(List<int> grid) {
-
+        public void updateGrid(List<int> grid) {
+            Console.WriteLine("GAMEWINDOW");
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     Button temp = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == i && Grid.GetColumn(x) == j).FirstOrDefault();
                     int tempInt = Convert.ToInt32("" + i + j);
                     if (grid[tempInt] == 0)
                     {
-                       
+                        Console.WriteLine("GAMEWINDOW - " + i + j);
                         BitmapImage bmp = new BitmapImage();
                         Uri u = new Uri("Images/Water.jpg", UriKind.RelativeOrAbsolute);
                         bmp.UriSource = u;

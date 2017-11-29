@@ -31,6 +31,7 @@ namespace BoardgameInc.Logic_layer
             playfield2 = new PlayField(player2.placeShips(new int[] { 2, 3, 4 }));
             activePlayer = player1;
             activePlayfield = playfield2;
+            ui.updateGrid(activePlayfield.getGrid());
 
         }
 

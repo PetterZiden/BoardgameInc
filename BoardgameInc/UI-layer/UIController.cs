@@ -48,7 +48,9 @@ namespace BoardgameInc.UI_layer
 
         public void updateGrid(List<int> grid)
         {
-            current.updateGrid(grid);
+            GameWindow temp = (GameWindow)current;
+            temp.updateGrid(grid);
+            Console.WriteLine("UICONTROLLER");
         }
        
 
@@ -69,7 +71,7 @@ namespace BoardgameInc.UI_layer
             else
             {
                 switchView(new GameWindow(this));
-                lc.GameLoop();
+                lc.StartGame();
             }
         }
 

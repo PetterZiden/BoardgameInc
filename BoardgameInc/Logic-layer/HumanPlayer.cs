@@ -32,7 +32,7 @@ namespace BoardgameInc.Logic_layer
         override
         public int getShotLoc()
         {
-            return input;
+            return 0;
         }
 
         override

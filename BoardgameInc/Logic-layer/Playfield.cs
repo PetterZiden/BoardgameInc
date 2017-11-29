@@ -34,7 +34,7 @@ namespace BoardgameInc.Logic_layer
                 int checkIfHit = ships[i].checkHit(loc);
                 if (checkIfHit >= 0)
                 {
-                    grid[loc] = 1;
+                    grid[loc] = 2;
                     if (checkIfHit == 0)
                     {
                         ships.RemoveAt(i);
@@ -44,7 +44,7 @@ namespace BoardgameInc.Logic_layer
                 }
                 else
                 {
-                    grid[loc] = 2;
+                    grid[loc] = 1;
                 }
                 
             }
