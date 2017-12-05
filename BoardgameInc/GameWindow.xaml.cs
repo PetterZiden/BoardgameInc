@@ -45,23 +45,6 @@ namespace BoardgameInc
             
         }
 
-        private void btn_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-            Button current = (Button)sender;
-            int row = Grid.GetRow(current);
-            int col = Grid.GetColumn(current);
-
-            //current.Background = Brushes.Aquamarine;
-
-        }
-
-        private void btn_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Button current = (Button)sender;
-            //current.Background = Brushes.Gray;
-          
-        }
 
         public void updateGrid(List<int> grid) {
             Console.WriteLine("GAMEWINDOW");
