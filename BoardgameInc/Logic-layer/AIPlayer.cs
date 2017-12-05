@@ -90,7 +90,7 @@ namespace BoardgameInc.Logic_layer
 
             }
 
-            playfield = new PlayField(ships);
+            playfield = new PlayField(ships, this.name);
 
         }
 

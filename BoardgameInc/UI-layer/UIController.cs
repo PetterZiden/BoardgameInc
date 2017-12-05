@@ -14,6 +14,8 @@ namespace BoardgameInc.UI_layer
         Player player1;
         Player player2;
         Player activePlayer;
+        List<int> activeGrid;
+        string activePlayField;
         Window current;
         LogicController lc;
         int currentShipSize = 2;
@@ -46,13 +48,14 @@ namespace BoardgameInc.UI_layer
             return 0;
         }
 
-        public void updateGrid(List<int> grid)
+        public void updateGrid(List<int> grid, string n)
         {
+            activeGrid = grid;
+            activePlayField = n;
             GameWindow temp = (GameWindow)current;
-            temp.updateGrid(grid);
-            Console.WriteLine("UICONTROLLER");
+            temp.updateGrid(activeGrid);
+
         }
-       
 
         public void setShip(List<int> shipLocs)
         {
@@ -110,6 +113,11 @@ namespace BoardgameInc.UI_layer
             return activePlayer.getName();
         }
 
+        public void setActivePlayer(Player p)
+        {
+            activePlayer = p;
+        }
+
         public void setCurrentShipSize() {
           
             if (currentShipSize == 4)
@@ -126,5 +134,9 @@ namespace BoardgameInc.UI_layer
             return currentShipSize;
         }
 
+        public string getActivePlayfield()
+        {
+            return activePlayField;
+        }
     }
 }

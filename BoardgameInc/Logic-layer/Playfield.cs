@@ -13,10 +13,12 @@ namespace BoardgameInc.Logic_layer
         private List<Ship> ships;
         private List<int> grid; 
         private int shipsLeft;
+        private string name;
 
-        public PlayField(List<Ship> s) {
+        public PlayField(List<Ship> s, string n) {
             this.ships = s;
             shipsLeft = 3;
+            name = n;
             grid = new List<int>();
             for(int i = 0; i < 100; i++)
             {
@@ -29,6 +31,7 @@ namespace BoardgameInc.Logic_layer
         }
 
        public int checkHit(int loc) {
+            Console.WriteLine(loc);
 
             for (int i = 0; i < ships.Count; i++) {
                 int checkIfHit = ships[i].checkHit(loc);
@@ -82,6 +85,11 @@ namespace BoardgameInc.Logic_layer
         public List<int> getGrid()
         {
             return grid;
+        }
+
+        public string getName()
+        {
+            return name;
         }
     }
 }

@@ -12,8 +12,6 @@ namespace BoardgameInc.Logic_layer
     {
         Player player1;
         Player player2;
-        PlayField playfield1;
-        PlayField playfield2;
         Player activePlayer;
         PlayField activePlayfield;
         UIController ui;
@@ -31,7 +29,7 @@ namespace BoardgameInc.Logic_layer
             player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
             activePlayfield = player2.getPlayfield();
-            ui.updateGrid(activePlayfield.getGrid());
+            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
 
         }
 
@@ -39,26 +37,41 @@ namespace BoardgameInc.Logic_layer
         {
             int hitMarker = activePlayfield.checkHit(input);
             activePlayer.getShotFeedback(hitMarker, input);
-            List<int> grid = activePlayfield.getGrid();
+            //ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+            firstPause();
             activePlayfield = activePlayer.getPlayfield();
-            ui.updateGrid(grid);
-            Thread.Sleep(1000);
             if (activePlayer == player1)
             {
-                activePlayer = player2; 
+                Console.WriteLine("Player 1 to Player 2");
+                activePlayer = player2;
+                
             }
             else
-            { 
+            {
+                Console.WriteLine("Player 2 to Player 1");
                 activePlayer = player1; 
             }
-            ui.updateGrid(activePlayfield.getGrid());
+            ui.setActivePlayer(activePlayer);
+            secondPause();
             if (activePlayer.GetType() == typeof(AIPlayer))
             {
-                Thread.Sleep(1000);
                 shotInput(activePlayer.getShotLoc());
             }
-            
-            
+        }
+
+        private async void firstPause()
+        {
+            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+            await Task.Delay(2000);
+
+        }
+
+        private async void secondPause()
+        {
+            await Task.Delay(2000);
+            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+
+
         }
 
         public List<int> getActivePlayfield()

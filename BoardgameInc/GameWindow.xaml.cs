@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -47,45 +48,29 @@ namespace BoardgameInc
 
 
         public void updateGrid(List<int> grid) {
-            Console.WriteLine("GAMEWINDOW");
+            ActivePlayer.Text = "Active player: " + controller.getActivePlayerName();
+            ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield();
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     Button temp = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == i && Grid.GetColumn(x) == j).FirstOrDefault();
                     var brush = new ImageBrush();
                     int tempInt = Convert.ToInt32("" + i + j);
-                    Console.WriteLine(grid[tempInt]);
                     if (grid[tempInt] == 0)
                     {
-                        Console.WriteLine("GAMEWINDOW - " + i + j);
-                        /*BitmapImage bmp = new BitmapImage();
-                        Uri u = new Uri("Images/Water.jpg", UriKind.RelativeOrAbsolute);
-                        bmp.UriSource = u;
-                        Image tempImages = new Image();
-                        tempImages.Source = bmp;
-                        temp.Content = tempImages; */
+
                         brush.ImageSource = new BitmapImage(new Uri("Images/Water.jpg", UriKind.Relative));
                         temp.Background = brush;
 
                     }
                     else if (grid[tempInt] == 1)
                     {
-                        /*BitmapImage bmp = new BitmapImage();
-                        Uri u = new Uri("Images/Miss.jpg", UriKind.RelativeOrAbsolute);
-                        bmp.UriSource = u;
-                        Image tempImages = new Image();
-                        tempImages.Source = bmp;
-                        temp.Content = tempImages; */
+                        
                         brush.ImageSource = new BitmapImage(new Uri("Images/Miss.jpg", UriKind.Relative));
                         temp.Background = brush;
                     }
                     else if (grid[tempInt] == 2)
                     {
-                        /*BitmapImage bmp = new BitmapImage();
-                        Uri u = new Uri("Images/Hit.jpg", UriKind.RelativeOrAbsolute);
-                        bmp.UriSource = u;
-                        Image tempImages = new Image();
-                        tempImages.Source = bmp;
-                        temp.Content = tempImages;*/
+                        
                         brush.ImageSource = new BitmapImage(new Uri("Images/Hit.jpg", UriKind.Relative));
                         temp.Background = brush;
                     }

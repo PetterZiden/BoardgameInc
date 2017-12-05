@@ -26,7 +26,7 @@ namespace BoardgameInc.Logic_layer
             {
                 ships.Add(new Ship(shipSizes[i], shipLocs[i]));
             }
-            playfield = new PlayField(ships);
+            playfield = new PlayField(ships, this.name);
         }
 
         override

@@ -143,6 +143,9 @@
             <Button Grid.Row="9" Grid.Column="9" Background="Gray" Name="J10" />
 
         </Grid>
+        <TextBlock x:Name="ActivePlayer" HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="51"/>
+        <TextBlock x:Name="ActivePlayfield" HorizontalAlignment="Left" Margin="10,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="153"/>
+
 
 
     </Grid>
