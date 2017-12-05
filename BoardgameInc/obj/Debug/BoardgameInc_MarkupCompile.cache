@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\obj\Debug\
 BoardgameInc
 none
 false
 DEBUG;TRACE
-C:\Users\oskal070\Source\Repos\BoardgameInc\BoardgameInc\App.xaml
-11151548125
+C:\Users\petzi854\Source\Repos\BoardgameInc\BoardgameInc\App.xaml
+31047607647
 
-111978561302
+14-256540616
 131569487696
-MainWindow.xaml;
+GameWindow.xaml;MainWindow.xaml;ShipSelectWindow.xaml;
 
 False
 

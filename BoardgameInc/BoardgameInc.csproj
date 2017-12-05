@@ -54,6 +54,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShipSelectWindow.xaml.cs">
+      <DependentUpon>ShipSelectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI-layer\UIController.cs" />
+    <Page Include="GameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ShipSelectWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,7 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data-layer\" />
-    <Folder Include="UI-layer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Explosion.png" />
+    <Resource Include="Images\Hit.jpg" />
+    <Resource Include="Images\Miss.jpg" />
+    <Resource Include="Images\Water.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
