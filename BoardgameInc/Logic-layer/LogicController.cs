@@ -33,12 +33,12 @@ namespace BoardgameInc.Logic_layer
 
         }
 
-        public void shotInput(int input)
+        public async void shotInput(int input)
         {
             int hitMarker = activePlayfield.checkHit(input);
             activePlayer.getShotFeedback(hitMarker, input);
-            //ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
-            firstPause();
+            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+            await Task.Delay(1500);
             activePlayfield = activePlayer.getPlayfield();
             if (activePlayer == player1)
             {
@@ -52,26 +52,11 @@ namespace BoardgameInc.Logic_layer
                 activePlayer = player1; 
             }
             ui.setActivePlayer(activePlayer);
-            secondPause();
+            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
             if (activePlayer.GetType() == typeof(AIPlayer))
             {
                 shotInput(activePlayer.getShotLoc());
             }
-        }
-
-        private async void firstPause()
-        {
-            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
-            await Task.Delay(2000);
-
-        }
-
-        private async void secondPause()
-        {
-            await Task.Delay(2000);
-            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
-
-
         }
 
         public List<int> getActivePlayfield()
