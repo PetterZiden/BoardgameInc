@@ -64,6 +64,8 @@ namespace BoardgameInc.UI_layer
             }
             else if(playerAmount > counter && activePlayer.GetType() == typeof(HumanPlayer)) 
             {
+                ShipSelectWindow temp = (ShipSelectWindow)current;
+                temp.clearShips();
                 activePlayer = player2;
                 currentShipSize = 2;
                 counter++;

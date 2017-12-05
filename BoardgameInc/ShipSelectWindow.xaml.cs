@@ -36,6 +36,7 @@ namespace BoardgameInc
             controller = c;
             Alignment.SelectedIndex = 0;
             updateTextBox();
+            clearShips();
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
@@ -122,8 +123,6 @@ namespace BoardgameInc
             Button current = (Button)sender;
             int row = Grid.GetRow(current);
             int col = Grid.GetColumn(current);
-
-            current.Background = Brushes.Black;
           
             if (Alignment.Text.Equals("Horizontal")) {
                 for(int i = 1; i < controller.getCurrentShipSize(); i++) {
@@ -153,10 +152,11 @@ namespace BoardgameInc
         private void btn_MouseLeave(object sender, MouseEventArgs e)
         {
             Button current = (Button)sender;
-            current.Background = Brushes.Gray;
-            foreach(Button b in activeButtons)
+            var brush = new ImageBrush();
+            brush.ImageSource = new BitmapImage(new Uri("Images/Water.jpg", UriKind.Relative));
+            foreach (Button b in activeButtons)
             {
-                b.Background = Brushes.Gray;
+                b.Background = brush;
             }
             foreach (Button b in placedShips)
             {
@@ -164,6 +164,25 @@ namespace BoardgameInc
             }
             activeButtons.Clear();
 
+        }
+
+        public void clearShips()
+        {
+            placedShips.Clear();
+            activeButtons.Clear();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Button temp = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == i && Grid.GetColumn(x) == j).FirstOrDefault();
+                    var brush = new ImageBrush();
+                    int tempInt = Convert.ToInt32("" + i + j);
+                    brush.ImageSource = new BitmapImage(new Uri("Images/Water.jpg", UriKind.Relative));
+                    temp.Background = brush;
+
+                }
+            }
         }
 
         private void updateTextBox()

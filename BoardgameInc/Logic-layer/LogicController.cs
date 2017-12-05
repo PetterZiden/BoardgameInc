@@ -41,6 +41,8 @@ namespace BoardgameInc.Logic_layer
             activePlayer.getShotFeedback(hitMarker, input);
             List<int> grid = activePlayfield.getGrid();
             activePlayfield = activePlayer.getPlayfield();
+            ui.updateGrid(grid);
+            Thread.Sleep(1000);
             if (activePlayer == player1)
             {
                 activePlayer = player2; 
@@ -49,8 +51,6 @@ namespace BoardgameInc.Logic_layer
             { 
                 activePlayer = player1; 
             }
-            ui.updateGrid(grid);
-            Thread.Sleep(3000);
             ui.updateGrid(activePlayfield.getGrid());
             if (activePlayer.GetType() == typeof(AIPlayer))
             {
