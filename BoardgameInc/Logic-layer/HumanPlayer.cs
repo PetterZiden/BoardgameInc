@@ -19,14 +19,14 @@ namespace BoardgameInc.Logic_layer
         }
 
             override
-            public List<Ship> placeShips(int[] shipSizes)
+            public void placeShips(int[] shipSizes)
         {
             List<Ship> ships = new List<Ship>();
             for(int i = 0; i < shipLocs.Count; i++)
             {
                 ships.Add(new Ship(shipSizes[i], shipLocs[i]));
             }
-            return ships;
+            playfield = new PlayField(ships);
         }
 
         override

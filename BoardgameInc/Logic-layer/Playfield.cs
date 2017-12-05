@@ -8,7 +8,7 @@ namespace BoardgameInc.Logic_layer
 {
  
 
-    class PlayField
+    public class PlayField
     {
         private List<Ship> ships;
         private List<int> grid; 

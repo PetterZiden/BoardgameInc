@@ -27,10 +27,10 @@ namespace BoardgameInc.Logic_layer
         public void StartGame()
         {
 
-            playfield1 = new PlayField(player1.placeShips(new int[] { 2, 3, 4 }));
-            playfield2 = new PlayField(player2.placeShips(new int[] { 2, 3, 4 }));
+            player1.placeShips(new int[] { 2, 3, 4 });
+            player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
-            activePlayfield = playfield2;
+            activePlayfield = player2.getPlayfield();
             ui.updateGrid(activePlayfield.getGrid());
 
         }
@@ -40,15 +40,14 @@ namespace BoardgameInc.Logic_layer
             int hitMarker = activePlayfield.checkHit(input);
             activePlayer.getShotFeedback(hitMarker, input);
             List<int> grid = activePlayfield.getGrid();
-            if(activePlayer == player1)
+            activePlayfield = activePlayer.getPlayfield();
+            if (activePlayer == player1)
             {
-                activePlayer = player2;
-                activePlayfield = playfield1;
+                activePlayer = player2; 
             }
             else
-            {
-                activePlayer = player1;
-                activePlayfield = playfield2;
+            { 
+                activePlayer = player1; 
             }
             ui.updateGrid(grid);
             Thread.Sleep(3000);
