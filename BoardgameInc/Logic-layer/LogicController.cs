@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BoardgameInc.Logic_layer
 {
-   public class UIcontroller
+   public class LogicController
     {
         Player player1;
         Player player2;
@@ -16,7 +16,7 @@ namespace BoardgameInc.Logic_layer
         PlayField activePlayfield;
         UIController ui;
 
-        public UIcontroller()
+        public LogicController()
         {
            
         }
@@ -40,7 +40,9 @@ namespace BoardgameInc.Logic_layer
             {
                 activePlayer.getShotFeedback(hitMarker, input);
                 ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+                ui.switchPaused();
                 await Task.Delay(1500);
+                ui.switchPaused();
                 activePlayfield = activePlayer.getPlayfield();
                 if (activePlayer == player1)
                 {

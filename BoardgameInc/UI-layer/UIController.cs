@@ -17,14 +17,16 @@ namespace BoardgameInc.UI_layer
         List<int> activeGrid;
         string activePlayField;
         Window current;
-        UIcontroller lc;
+        Boolean paused;
+        LogicController lc;
         int currentShipSize = 2;
         int counter = 1;
 
 
-        public UIController(UIcontroller c) {
+        public UIController(LogicController c) {
             lc = c;
             activePlayer = player1;
+            paused = false;
         }
 
         public void startApp()
@@ -43,7 +45,10 @@ namespace BoardgameInc.UI_layer
 
         public int nextShotInput(int input)
         {
-            lc.shotInput(input);
+            if (!paused)
+            {
+                lc.shotInput(input);
+            }
             
             return 0;
         }
@@ -137,6 +142,18 @@ namespace BoardgameInc.UI_layer
         public string getActivePlayfield()
         {
             return activePlayField;
+        }
+
+        public void switchPaused()
+        {
+            if(paused)
+            {
+                paused = false;
+            }
+            else
+            {
+                paused = true;
+            }
         }
 
         public void createGameoverWindow() {
