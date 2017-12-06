@@ -15,7 +15,7 @@ namespace BoardgameInc.UI_layer
         Player player2;
         Player activePlayer;
         List<int> activeGrid;
-        string activePlayField;
+        String activePlayField;
         Window current;
         Boolean paused;
         LogicController lc;
@@ -123,6 +123,11 @@ namespace BoardgameInc.UI_layer
             activePlayer = p;
         }
 
+        public int getShipLeft() {
+
+            return activePlayField.getShipsLeftInt();
+        }
+
         public void setCurrentShipSize() {
           
             if (currentShipSize == 4)
@@ -141,7 +146,7 @@ namespace BoardgameInc.UI_layer
 
         public string getActivePlayfield()
         {
-            return activePlayField;
+            return activePlayField.getName();
         }
 
         public void switchPaused()

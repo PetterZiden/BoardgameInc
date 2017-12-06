@@ -50,6 +50,8 @@ namespace BoardgameInc
         public void updateGrid(List<int> grid) {
             ActivePlayer.Text = "Active player: " + controller.getActivePlayerName();
             ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield();
+            ShipsLeft.Text = "Ships left for " + controller.getActivePlayerName() + " : " + controller.getShipLeft();
+           
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     Button temp = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == i && Grid.GetColumn(x) == j).FirstOrDefault();
@@ -67,12 +69,14 @@ namespace BoardgameInc
                         
                         brush.ImageSource = new BitmapImage(new Uri("Images/Miss.jpg", UriKind.Relative));
                         temp.Background = brush;
+                        ShotOutput.Text = "The shot was a MISS";
                     }
                     else if (grid[tempInt] == 2)
                     {
                         
                         brush.ImageSource = new BitmapImage(new Uri("Images/Hit.jpg", UriKind.Relative));
                         temp.Background = brush;
+                        ShotOutput.Text = "The shot was a HIT";
                     }
                     else
                     {

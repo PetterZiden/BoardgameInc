@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BoardgameInc.Logic_layer
 {
- 
+
 
     public class PlayField
     {
         private List<Ship> ships;
-        private List<int> grid; 
+        private List<int> grid;
         private int shipsLeft;
         private string name;
 
@@ -20,7 +20,7 @@ namespace BoardgameInc.Logic_layer
             shipsLeft = 3;
             name = n;
             grid = new List<int>();
-            for(int i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
                 grid.Add(0);
             }
@@ -30,7 +30,7 @@ namespace BoardgameInc.Logic_layer
         {
         }
 
-       public int checkHit(int loc) {
+        public int checkHit(int loc) {
             Console.WriteLine(loc);
 
             for (int i = 0; i < ships.Count; i++) {
@@ -49,7 +49,7 @@ namespace BoardgameInc.Logic_layer
                 {
                     grid[loc] = 1;
                 }
-                
+
             }
             return -1;
 
@@ -67,7 +67,7 @@ namespace BoardgameInc.Logic_layer
 
         public Boolean getShipsLeft()
         {
-            if(shipsLeft > 0)
+            if (shipsLeft > 0)
             {
                 return true;
             }
@@ -75,6 +75,10 @@ namespace BoardgameInc.Logic_layer
             {
                 return false;
             }
+        }
+
+        public int getShipsLeftInt() {
+            return shipsLeft;
         }
 
         public void setShipsLeft(int i)
@@ -91,5 +95,9 @@ namespace BoardgameInc.Logic_layer
         {
             return name;
         }
+
+        public void setName(String n){
+            name = n;
+        }       
     }
 }
