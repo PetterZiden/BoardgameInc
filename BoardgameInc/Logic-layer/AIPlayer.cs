@@ -195,7 +195,7 @@ namespace BoardgameInc.Logic_layer
                     {
                         mediumPriority.Add(gridIndex - 1);
                     }
-                    if ((gridIndex + gridSizeY) <= gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY])
+                    if ((gridIndex + gridSizeY) < gridSizeX * gridSizeY && !grid[gridIndex + gridSizeY])
                     {
                         mediumPriority.Add(gridIndex + gridSizeY);
                     }
