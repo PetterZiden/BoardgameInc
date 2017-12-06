@@ -17,12 +17,12 @@ namespace BoardgameInc.UI_layer
         List<int> activeGrid;
         string activePlayField;
         Window current;
-        LogicController lc;
+        UIcontroller lc;
         int currentShipSize = 2;
         int counter = 1;
 
 
-        public UIController(LogicController c) {
+        public UIController(UIcontroller c) {
             lc = c;
             activePlayer = player1;
         }
@@ -137,6 +137,12 @@ namespace BoardgameInc.UI_layer
         public string getActivePlayfield()
         {
             return activePlayField;
+        }
+
+        public void createGameoverWindow() {
+
+            GameOverWindow gow = new GameOverWindow(this);
+            gow.ShowDialog();
         }
     }
 }

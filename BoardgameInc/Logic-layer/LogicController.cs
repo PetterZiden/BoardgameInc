@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BoardgameInc.Logic_layer
 {
-   public class LogicController
+   public class UIcontroller
     {
         Player player1;
         Player player2;
@@ -16,7 +16,7 @@ namespace BoardgameInc.Logic_layer
         PlayField activePlayfield;
         UIController ui;
 
-        public LogicController()
+        public UIcontroller()
         {
            
         }
@@ -36,27 +36,34 @@ namespace BoardgameInc.Logic_layer
         public async void shotInput(int input)
         {
             int hitMarker = activePlayfield.checkHit(input);
-            activePlayer.getShotFeedback(hitMarker, input);
-            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
-            await Task.Delay(1500);
-            activePlayfield = activePlayer.getPlayfield();
-            if (activePlayer == player1)
+            if (activePlayfield.getShipsLeft())
             {
-                Console.WriteLine("Player 1 to Player 2");
-                activePlayer = player2;
-                
+                activePlayer.getShotFeedback(hitMarker, input);
+                ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+                await Task.Delay(1500);
+                activePlayfield = activePlayer.getPlayfield();
+                if (activePlayer == player1)
+                {
+                    Console.WriteLine("Player 1 to Player 2");
+                    activePlayer = player2;
+
+                }
+                else
+                {
+                    Console.WriteLine("Player 2 to Player 1");
+                    activePlayer = player1;
+                }
+                ui.setActivePlayer(activePlayer);
+                ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+                if (activePlayer.GetType() == typeof(AIPlayer))
+                {
+                    shotInput(activePlayer.getShotLoc());
+                }
             }
-            else
-            {
-                Console.WriteLine("Player 2 to Player 1");
-                activePlayer = player1; 
+            else {
+                ui.createGameoverWindow();
             }
-            ui.setActivePlayer(activePlayer);
-            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
-            if (activePlayer.GetType() == typeof(AIPlayer))
-            {
-                shotInput(activePlayer.getShotLoc());
-            }
+
         }
 
         public List<int> getActivePlayfield()
