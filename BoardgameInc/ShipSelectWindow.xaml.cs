@@ -46,6 +46,7 @@ namespace BoardgameInc
             List<Button> tempList = new List<Button>();
             Button current = (Button)sender;
             Boolean gridTaken = false;
+            Boolean invalidGrid = false;
      
             if (!placedShips.Contains(current))
             {
@@ -69,6 +70,10 @@ namespace BoardgameInc
                             }
 
                         }
+                        else
+                        {
+                            invalidGrid = true;
+                        }
                     }
                 }
                 else
@@ -87,10 +92,14 @@ namespace BoardgameInc
                                 gridTaken = true;
                             }
                         }
+                        else
+                        {
+                            invalidGrid = true;
+                        }
                     }
                 }
                 posOutput.Text = Convert.ToString(shipLocs[0]);
-                if (!gridTaken)
+                if (!gridTaken && !invalidGrid)
                 {
                     placedShips.Add(current);
                     foreach (Button b in tempList)
@@ -103,9 +112,15 @@ namespace BoardgameInc
                     updateTextBox();
                     errorOutput.Text = "";
                 }
+                else if(gridTaken)
+                {
+                    errorOutput.Text = "Cannot place ship in that location. Location already occupied!";
+                    updateTextBox();
+                }
                 else
                 {
-                    errorOutput.Text = "Grid already taken!";
+                    errorOutput.Text = "Cannot place ship in that location. Location is outside playfield";
+                    updateTextBox();
                 }
                 
             }
