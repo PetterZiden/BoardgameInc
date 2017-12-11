@@ -146,5 +146,10 @@ namespace BoardgameInc.UI_layer
             GameOverWindow gow = new GameOverWindow(this);
             gow.ShowDialog();
         }
+
+        public void saveGame()
+        {
+            lc.saveGame();
+        }
     }
 }

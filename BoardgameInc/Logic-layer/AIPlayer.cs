@@ -205,10 +205,25 @@ namespace BoardgameInc.Logic_layer
                     }
                 }
              
-            }
-        
-    } 
+            }    
+    }
+        override
+        public List<Boolean> getAIGrid()
+        {
+            return grid;
+        }
 
-}
+        override
+        public List<int> getMediumPriority()
+        {
+            return mediumPriority;
+        }
+        override
+        public List<int> getHighPriority()
+        {
+            return highPriority;
+        }
+
+    }
 }
 

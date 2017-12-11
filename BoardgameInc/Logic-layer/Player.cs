@@ -42,6 +42,21 @@ namespace BoardgameInc.Logic_layer
         {
             return playfield;
         }
+
+        public virtual List<Boolean> getAIGrid()
+        {
+            return null;
+        }
+
+        public virtual List<int> getMediumPriority()
+        {
+            return null;
+        }
+
+        public virtual List<int> getHighPriority()
+        {
+            return null;
+        }
     }
 
 }

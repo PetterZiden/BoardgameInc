@@ -1,4 +1,5 @@
-﻿using BoardgameInc.Logic_layer;
+﻿using BoardgameInc.Data_layer;
+using BoardgameInc.Logic_layer;
 using BoardgameInc.UI_layer;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,8 @@ namespace BoardgameInc
         {
 
             base.OnStartup(e);
-            LogicController lc = new LogicController();
+            DataController dc = new DataController();
+            LogicController lc = new LogicController(dc);
             UIController ui = new UIController(lc);
             lc.setUIController(ui);
             ui.startApp();

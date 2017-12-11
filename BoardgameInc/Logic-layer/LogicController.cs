@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using BoardgameInc.Data_layer;
 
 namespace BoardgameInc.Logic_layer
 {
@@ -13,12 +14,14 @@ namespace BoardgameInc.Logic_layer
         Player player1;
         Player player2;
         Player activePlayer;
+        int playerAmount;
         PlayField activePlayfield;
         UIController ui;
+        DataController data;
 
-        public LogicController()
+        public LogicController(DataController dc)
         {
-           
+            data = dc;
         }
 
 
@@ -98,8 +101,9 @@ namespace BoardgameInc.Logic_layer
             ui = c;
         } 
 
-        public void setPlayers(String n1, String n2, int playerAmount)
+        public void setPlayers(String n1, String n2, int amount)
         {
+            playerAmount = amount;
             player1 = new HumanPlayer(n1);
             activePlayer = player1;
 
@@ -112,6 +116,20 @@ namespace BoardgameInc.Logic_layer
                 player2 = new HumanPlayer(n2);
             }
 
+        }
+
+        public void saveGame()
+        {
+            int active;
+            if(activePlayer == player1)
+            {
+                active = 1;
+            }
+            else
+            {
+                active = 2;
+            }
+            data.save(player1, player2, active, playerAmount);
         }
 
     }

@@ -88,6 +88,9 @@ namespace BoardgameInc
 
         }
 
-        
+        private void save(object sender, RoutedEventArgs e)
+        {
+            controller.saveGame();
+        }
     }
 }
