@@ -32,6 +32,15 @@ namespace BoardgameInc.Logic_layer
             }
         }
 
+        public AIPlayer(String n, PlayField pf, List<Boolean> g, List<int> mp, List<int> hp)
+            :base(n, pf)
+        {
+            grid = g;
+            mediumPriority = mp;
+            highPriority = hp;
+
+        }
+
         ~AIPlayer()
         {
         }

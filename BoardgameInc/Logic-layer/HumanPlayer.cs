@@ -14,6 +14,12 @@ namespace BoardgameInc.Logic_layer
 
         }
 
+        public HumanPlayer(String n, PlayField pf)
+            :base(n, pf)
+        {
+
+        }
+
         ~HumanPlayer()
         {
         }

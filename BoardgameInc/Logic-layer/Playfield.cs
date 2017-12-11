@@ -16,7 +16,7 @@ namespace BoardgameInc.Logic_layer
         private string name;
 
         public PlayField(List<Ship> s, string n) {
-            this.ships = s;
+            ships = s;
             shipsLeft = 3;
             name = n;
             grid = new List<int>();
@@ -24,6 +24,13 @@ namespace BoardgameInc.Logic_layer
             {
                 grid.Add(0);
             }
+        }
+
+        public PlayField(List<Ship> s, string n, List<int> g)
+        {
+            ships = s;
+            shipsLeft = s.Count();
+            grid = g;
         }
 
         ~PlayField()

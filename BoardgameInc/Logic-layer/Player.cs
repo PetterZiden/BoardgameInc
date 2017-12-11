@@ -19,6 +19,12 @@ namespace BoardgameInc.Logic_layer
             shipLocs = new List<List<int>>();
         }
 
+        public Player(string n, PlayField pf)
+        {
+            this.name = n;
+            this.playfield = pf;
+        }
+
         public abstract void placeShips(int[] shipSizes);
         public abstract int getShotLoc();
         public abstract void getShotFeedback(int hitmarker, int gridLoc);
