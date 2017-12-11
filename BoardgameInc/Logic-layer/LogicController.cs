@@ -29,7 +29,7 @@ namespace BoardgameInc.Logic_layer
             player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
             activePlayfield = player2.getPlayfield();
-            ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+            ui.updateGrid();
 
         }
 
@@ -39,7 +39,7 @@ namespace BoardgameInc.Logic_layer
             if (activePlayfield.getShipsLeft())
             {
                 activePlayer.getShotFeedback(hitMarker, input);
-                ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+                ui.updateGrid();
                 ui.switchPaused();
                 await Task.Delay(1500);
                 ui.switchPaused();
@@ -55,8 +55,7 @@ namespace BoardgameInc.Logic_layer
                     Console.WriteLine("Player 2 to Player 1");
                     activePlayer = player1;
                 }
-                ui.setActivePlayer(activePlayer);
-                ui.updateGrid(activePlayfield.getGrid(), activePlayfield.getName());
+                ui.updateGrid();
                 if (activePlayer.GetType() == typeof(AIPlayer))
                 {
                     shotInput(activePlayer.getShotLoc());
@@ -68,9 +67,14 @@ namespace BoardgameInc.Logic_layer
 
         }
 
-        public List<int> getActivePlayfield()
+        public PlayField getActivePlayfield()
         {
-            return activePlayfield.getGrid();
+            return activePlayfield;
+        }
+
+        public Player getActivePlayer()
+        {
+            return activePlayer;
         }
 
         private static void printOutput(int hitMarker)
@@ -94,11 +98,20 @@ namespace BoardgameInc.Logic_layer
             ui = c;
         } 
 
-        public void setPlayers(Player p1, Player p2)
+        public void setPlayers(String n1, String n2, int playerAmount)
         {
-            player1 = p1;
-            player2 = p2;
-            
+            player1 = new HumanPlayer(n1);
+            activePlayer = player1;
+
+            if (playerAmount == 1)
+            {
+                player2 = new AIPlayer("AI");
+            }
+            else
+            {
+                player2 = new HumanPlayer(n2);
+            }
+
         }
 
     }

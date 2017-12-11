@@ -48,9 +48,9 @@ namespace BoardgameInc
 
 
         public void updateGrid(List<int> grid) {
-            ActivePlayer.Text = "Active player: " + controller.getActivePlayerName();
-            ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield();
-            ShipsLeft.Text = "Ships left for " + controller.getActivePlayerName() + " : " + controller.getShipLeft();
+            ActivePlayer.Text = "Active player: " + controller.getActivePlayer().getName();
+            ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield().getName();
+            ShipsLeft.Text = "Ships left for " + controller.getActivePlayfield().getName() + " : " + controller.getShipLeft();
            
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {

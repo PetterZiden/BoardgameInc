@@ -202,7 +202,7 @@ namespace BoardgameInc
 
         private void updateTextBox()
         {
-            posOutput.Text = "Player: " + controller.getActivePlayerName() + "\nPlace ship of size: " + controller.getCurrentShipSize();
+            posOutput.Text = "Player: " + controller.getActivePlayer().getName() + "\nPlace ship of size: " + controller.getCurrentShipSize();
         }
 
         

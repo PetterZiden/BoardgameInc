@@ -11,11 +11,8 @@ namespace BoardgameInc.UI_layer
     public class UIController
     {
         int playerAmount;
-        Player player1;
-        Player player2;
         Player activePlayer;
-        List<int> activeGrid;
-        String activePlayField;
+        PlayField activePlayfield;
         Window current;
         Boolean paused;
         LogicController lc;
@@ -25,7 +22,6 @@ namespace BoardgameInc.UI_layer
 
         public UIController(LogicController c) {
             lc = c;
-            activePlayer = player1;
             paused = false;
         }
 
@@ -53,12 +49,11 @@ namespace BoardgameInc.UI_layer
             return 0;
         }
 
-        public void updateGrid(List<int> grid, string n)
+        public void updateGrid()
         {
-            activeGrid = grid;
-            activePlayField = n;
+            activePlayfield = lc.getActivePlayfield();
             GameWindow temp = (GameWindow)current;
-            temp.updateGrid(activeGrid);
+            temp.updateGrid(activePlayfield.getGrid());
 
         }
 
@@ -74,7 +69,6 @@ namespace BoardgameInc.UI_layer
             {
                 ShipSelectWindow temp = (ShipSelectWindow)current;
                 temp.clearShips();
-                activePlayer = player2;
                 currentShipSize = 2;
                 counter++;
             }
@@ -82,6 +76,7 @@ namespace BoardgameInc.UI_layer
             {
                 switchView(new GameWindow(this));
                 lc.StartGame();
+                activePlayfield = lc.getActivePlayfield();
             }
         }
 
@@ -97,35 +92,20 @@ namespace BoardgameInc.UI_layer
 
         public void setPlayers(String n1, String n2)
         {
-            player1 = new HumanPlayer(n1);
-            activePlayer = player1;
 
-            if(playerAmount == 1)
-            {
-                player2 = new AIPlayer("AI");
-            }
-            else
-            {
-                player2 = new HumanPlayer(n2);
-            }
-
-            lc.setPlayers(player1, player2);
+            lc.setPlayers(n1, n2, playerAmount);
+            activePlayer = lc.getActivePlayer();
 
         }
 
-        public String getActivePlayerName()
+        public Player getActivePlayer()
         {
-            return activePlayer.getName();
-        }
-
-        public void setActivePlayer(Player p)
-        {
-            activePlayer = p;
+            return lc.getActivePlayer();
         }
 
         public int getShipLeft() {
 
-            return activePlayField.getShipsLeftInt();
+            return lc.getActivePlayfield().getShipsLeftInt();
         }
 
         public void setCurrentShipSize() {
@@ -144,9 +124,9 @@ namespace BoardgameInc.UI_layer
             return currentShipSize;
         }
 
-        public string getActivePlayfield()
+        public PlayField getActivePlayfield()
         {
-            return activePlayField.getName();
+            return lc.getActivePlayfield();
         }
 
         public void switchPaused()
