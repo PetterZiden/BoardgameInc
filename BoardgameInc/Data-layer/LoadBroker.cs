@@ -12,7 +12,7 @@ namespace BoardgameInc.Data_layer
         public LoadBroker() {
         }
 
-        public void loadFromXML() {
+        public LoadObject loadFromXML() {
 
             XDocument doc = XDocument.Load("Z:\\save.xml");
 
@@ -26,13 +26,13 @@ namespace BoardgameInc.Data_layer
                               
                                };
             foreach (var r in tempWHATEVER) {
-                Console.WriteLine(r.Name + r.GridList + r.ShipsSize + r.ShipGrid);
+                Console.WriteLine(r.Name);
             }
 
 
-            //LoadObject lo = new LoadObject();
+            LoadObject lo = null;
 
-           // return lo;
+            return lo;
         }
     }
 }

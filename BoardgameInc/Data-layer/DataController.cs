@@ -34,17 +34,17 @@ namespace BoardgameInc.Data_layer
         {
             LoadObject loaded = lBroker.loadFromXML();
             List<Player> players = new List<Player>();
-            players.Add(new HumanPlayer(loaded.p1Name, new PlayField(loaded.playerOneShips, loaded.p1Name, loaded.playerOneGrid)));
+            /*players.Add(new HumanPlayer(loaded.playerOneName, new PlayField(loaded.playerOneShips, loaded.playerOneName, loaded.playerOneGrid)));
             if(loaded.playerAmount == 1)
             {
-                players.Add(new AIPlayer(loaded.p2Name, new PlayField(loaded.playerTwoShips, loaded.p2Name, loaded.playerTwoGrid), loaded.aiGrid, loaded.mediumPrio, loaded.highPrio));
+                players.Add(new AIPlayer(loaded.playerTwoName, new PlayField(loaded.playerTwoShips, loaded.playerTwoName, loaded.playerTwoGrid), loaded.aiPlayerGrid, loaded.mediumPriority, loaded.highPriority));
             }
             else
             {
-                players.Add(new HumanPlayer(loaded.p2Name, new PlayField(loaded.playerTwoShips, loaded.p2Name, loaded.playerTwoGrid)));
+                players.Add(new HumanPlayer(loaded.playerTwoName, new PlayField(loaded.playerTwoShips, loaded.playerTwoName, loaded.playerTwoGrid)));
             }
-
-            return players;
+            */
+            return players; 
 
         } 
     }

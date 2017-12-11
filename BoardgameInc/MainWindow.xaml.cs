@@ -64,6 +64,9 @@ namespace BoardgameInc
             
         }
 
-    
+        private void load(object sender, RoutedEventArgs e)
+        {
+            controller.loadGame();
+        }
     }
 }

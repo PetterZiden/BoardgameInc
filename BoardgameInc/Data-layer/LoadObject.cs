@@ -17,6 +17,7 @@ namespace BoardgameInc.Data_layer
         public String playerOneName;
         public String playerTwoName;
         public int activePlayer;
+        public int playerAmount;
         public List<Boolean> aiPlayerGrid;
         public List<int> mediumPriority;
         public List<int> highPriority;

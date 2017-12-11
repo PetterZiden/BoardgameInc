@@ -151,5 +151,11 @@ namespace BoardgameInc.UI_layer
         {
             lc.saveGame();
         }
+
+        public void loadGame()
+        {
+            lc.loadGame();
+
+        }
     }
 }

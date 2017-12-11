@@ -13,5 +13,6 @@
         <Button Name="playerOneInput" Content="Player one name" HorizontalAlignment="Left" Visibility="Hidden" Margin="138,197,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.071,-0.64" Click="onePlayerInput"/>
         <TextBox Name="playerTwoName" HorizontalAlignment="Left" Visibility="Hidden" Height="23" Margin="138,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button Name="playerTwoInput" Content="Player two name" HorizontalAlignment="Left" Visibility="Hidden" Margin="138,197,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.071,-0.64" Click="twoPlayerInput"/>
+        <Button Content="Load Game" HorizontalAlignment="Left" Margin="218,202,0,0" VerticalAlignment="Top" Width="75" Click="load"/>
     </Grid>
 </Window>
