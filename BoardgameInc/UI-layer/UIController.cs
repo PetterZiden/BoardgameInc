@@ -155,6 +155,10 @@ namespace BoardgameInc.UI_layer
         public void loadGame()
         {
             lc.loadGame();
+            activePlayer = lc.getActivePlayer();
+            activePlayfield = lc.getActivePlayfield();
+            switchView(new GameWindow(this));
+            updateGrid();
 
         }
     }

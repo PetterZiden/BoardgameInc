@@ -39,12 +39,14 @@ namespace BoardgameInc.Data_layer
                                 new XElement("ShipGrids", x.getGridlocs().Select(y => new XElement("ShipGrids",
                                     new XAttribute("Grid", y)
                                 )))
-                            ))),
-                            new XElement("AIGrid", aiGrid.Select(x => new XElement("AIGrid", x))),
-                            new XElement("AIMediumPrio", mediumPrio.Select(x => new XElement("MediumPrio", x))),
-                            new XElement("AIHighPrio", highPrio.Select(x => new XElement("HighPrio", x)))   
+                            )))
                         )
                     ),
+                    new XElement("AIInfo",
+                            new XElement("AIGrids", aiGrid.Select(x => new XElement("AIGrid", x))),
+                            new XElement("AIMediumPrio", mediumPrio.Select(x => new XElement("MediumPrio", x))),
+                            new XElement("AIHighPrio", highPrio.Select(x => new XElement("HighPrio", x)))
+                            ),
                     new XElement("ActivePlayer", activePlayer),
                     new XElement("PlayerAmount", 1)
                 )

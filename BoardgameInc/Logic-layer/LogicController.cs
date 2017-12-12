@@ -135,9 +135,10 @@ namespace BoardgameInc.Logic_layer
         public void loadGame()
         {
             List<Player> players = data.load();
-            /*player1 = players[0];
+            player1 = players[0];
             player2 = players[1];
-            activePlayer = player1; */
+            activePlayer = player1;
+            activePlayfield = player2.getPlayfield();
         }
 
     }
