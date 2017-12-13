@@ -30,7 +30,7 @@ namespace BoardgameInc.Data_layer
             }
         }
 
-        public List<Player> load()
+        public List<Player> load(LogicController lc)
         {
             LoadObject loaded = lBroker.loadFromXML();
             List<Player> players = new List<Player>();
@@ -43,6 +43,8 @@ namespace BoardgameInc.Data_layer
             {
                 players.Add(new HumanPlayer(loaded.playerTwoName, new PlayField(loaded.playerTwoShips, loaded.playerTwoName, loaded.playerTwoGrid)));
             }
+
+            lc.setGameInfo(loaded.activePlayer, loaded.playerAmount);
             
             return players; 
 
