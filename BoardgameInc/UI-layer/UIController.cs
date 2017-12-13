@@ -70,6 +70,7 @@ namespace BoardgameInc.UI_layer
                 ShipSelectWindow temp = (ShipSelectWindow)current;
                 temp.clearShips();
                 lc.switchActivePlayer();
+                activePlayer = lc.getActivePlayer();
                 currentShipSize = 2;
                 counter++;
             }
@@ -159,7 +160,7 @@ namespace BoardgameInc.UI_layer
             activePlayer = lc.getActivePlayer();
             activePlayfield = lc.getActivePlayfield();
             switchView(new GameWindow(this));
-            updateGrid(1);
+            updateGrid(8);
 
         }
     }
