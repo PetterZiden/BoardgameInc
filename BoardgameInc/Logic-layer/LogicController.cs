@@ -32,7 +32,7 @@ namespace BoardgameInc.Logic_layer
             player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
             activePlayfield = player2.getPlayfield();
-            ui.updateGrid(8);
+            ui.updateGrid(15);
 
         }
 
@@ -58,7 +58,7 @@ namespace BoardgameInc.Logic_layer
                     Console.WriteLine("Player 2 to Player 1");
                     activePlayer = player1;
                 }
-                ui.updateGrid(hitMarker);
+                ui.updateGrid(15);
                 if (activePlayer.GetType() == typeof(AIPlayer))
                 {
                     shotInput(activePlayer.getShotLoc());

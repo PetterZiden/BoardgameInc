@@ -160,7 +160,7 @@ namespace BoardgameInc.UI_layer
             activePlayer = lc.getActivePlayer();
             activePlayfield = lc.getActivePlayfield();
             switchView(new GameWindow(this));
-            updateGrid(8);
+            updateGrid(15);
 
         }
     }

@@ -146,7 +146,7 @@
         <TextBlock x:Name="ActivePlayer" HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Height="51"/>
         <TextBlock x:Name="ActivePlayfield" HorizontalAlignment="Left" Margin="10,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="54" Width="153"/>
         <TextBlock x:Name="ShipsLeft" HorizontalAlignment="Right" Margin="0,131,429,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="54" Width="153"/>
-        <TextBlock x:Name="ShotOutput" HorizontalAlignment="Left" Margin="10,185,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="54" Width="153"/>
+        <TextBlock x:Name="ShotOutput" HorizontalAlignment="Left" Margin="168,444,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="115" Width="148" FontSize="36"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="27,494,0,0" VerticalAlignment="Top" Width="75" Click="save"/>
 
 

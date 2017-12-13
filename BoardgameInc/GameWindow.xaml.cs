@@ -104,16 +104,20 @@ namespace BoardgameInc
 
             if (hitMarker == 0)
             {
-                ShotOutput.Text = "You sank a ship! ";
+                ShotOutput.Text = "SHIP SUNK";
 
             }
             else if (hitMarker == -1)
             {
 
-                ShotOutput.Text = "The shot was a Miss";
+                ShotOutput.Text = "MISS";
             }
-            else {
-                ShotOutput.Text = "The shot was a Hit";
+            else if(hitMarker > 0 && hitMarker < 10) {
+                ShotOutput.Text = "HIT";
+            }
+            else
+            {
+                ShotOutput.Text = "";
             }
             
         }
