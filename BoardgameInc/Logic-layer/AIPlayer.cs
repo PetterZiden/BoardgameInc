@@ -24,7 +24,6 @@ namespace BoardgameInc.Logic_layer
             rnd = new Random();
             gridSizeX = 10;
             gridSizeY = 10;
-            name = n;
 
             for (int i = 0; i < gridSizeX * gridSizeY; i++)
             {
@@ -35,9 +34,12 @@ namespace BoardgameInc.Logic_layer
         public AIPlayer(String n, PlayField pf, List<Boolean> g, List<int> mp, List<int> hp)
             :base(n, pf)
         {
+            rnd = new Random();
             grid = g;
             mediumPriority = mp;
             highPriority = hp;
+            gridSizeX = 10;
+            gridSizeY = 10;
 
         }
 
