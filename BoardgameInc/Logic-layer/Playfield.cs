@@ -30,6 +30,7 @@ namespace BoardgameInc.Logic_layer
         {
             ships = s;
             shipsLeft = s.Count();
+            name = n;
             grid = g;
         }
 

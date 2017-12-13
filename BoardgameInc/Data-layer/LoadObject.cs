@@ -22,7 +22,7 @@ namespace BoardgameInc.Data_layer
         public List<int> mediumPriority;
         public List<int> highPriority;
 
-        public LoadObject(List<int> p1Grid, List<int> p2Grid, List<Ship> p1Ships, List<Ship> p2Ships, String p1Name, String p2Name, int active, List<Boolean> aiGrid, List<int> mediumPrio, List<int> highPrio) {
+        public LoadObject(List<int> p1Grid, List<int> p2Grid, List<Ship> p1Ships, List<Ship> p2Ships, String p1Name, String p2Name, int active, int amount, List<Boolean> aiGrid, List<int> mediumPrio, List<int> highPrio) {
 
             playerOneGrid = p1Grid;
             playerTwoGrid = p2Grid;
@@ -31,6 +31,7 @@ namespace BoardgameInc.Data_layer
             playerOneName = p1Name;
             playerTwoName = p2Name;
             activePlayer = active;
+            playerAmount = amount;
             aiPlayerGrid = aiGrid;
             mediumPriority = mediumPrio;
             highPriority = highPrio;

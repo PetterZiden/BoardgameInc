@@ -35,7 +35,8 @@ namespace BoardgameInc.Data_layer
             LoadObject loaded = lBroker.loadFromXML();
             List<Player> players = new List<Player>();
             players.Add(new HumanPlayer(loaded.playerOneName, new PlayField(loaded.playerOneShips, loaded.playerOneName, loaded.playerOneGrid)));
-            if(loaded.playerAmount == 1)
+            Console.WriteLine("Player amount: " + loaded.playerAmount);
+            if (loaded.playerAmount == 1)
             {
                 players.Add(new AIPlayer(loaded.playerTwoName, new PlayField(loaded.playerTwoShips, loaded.playerTwoName, loaded.playerTwoGrid), loaded.aiPlayerGrid, loaded.mediumPriority, loaded.highPriority));
             }

@@ -74,9 +74,7 @@ namespace BoardgameInc.Data_layer
                     {
                         highPrio.Add(Int32.Parse(s.Value));
                     }
-                }
-                Console.WriteLine(aiGrid.Count);
-                
+                }   
             }
 
             foreach (var r in tempPlayer) {
@@ -102,7 +100,7 @@ namespace BoardgameInc.Data_layer
                 playerShips.Add(tempShips);   
             }
 
-            LoadObject lo = new LoadObject(playerGrids[0], playerGrids[1], playerShips[0], playerShips[1], playerNames[0], playerNames[1], activePlayer, aiGrid, medPrio, highPrio);
+            LoadObject lo = new LoadObject(playerGrids[0], playerGrids[1], playerShips[0], playerShips[1], playerNames[0], playerNames[1], activePlayer, playerAmount, aiGrid, medPrio, highPrio);
 
             return lo;
         }
