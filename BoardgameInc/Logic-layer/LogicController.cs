@@ -32,7 +32,7 @@ namespace BoardgameInc.Logic_layer
             player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
             activePlayfield = player2.getPlayfield();
-            ui.updateGrid();
+            ui.updateGrid(1);
 
         }
 
@@ -42,7 +42,7 @@ namespace BoardgameInc.Logic_layer
             if (activePlayfield.getShipsLeft())
             {
                 activePlayer.getShotFeedback(hitMarker, input);
-                ui.updateGrid();
+                ui.updateGrid(hitMarker);
                 ui.switchPaused();
                 await Task.Delay(1500);
                 ui.switchPaused();
@@ -58,7 +58,7 @@ namespace BoardgameInc.Logic_layer
                     Console.WriteLine("Player 2 to Player 1");
                     activePlayer = player1;
                 }
-                ui.updateGrid();
+                ui.updateGrid(hitMarker);
                 if (activePlayer.GetType() == typeof(AIPlayer))
                 {
                     shotInput(activePlayer.getShotLoc());
@@ -155,5 +155,15 @@ namespace BoardgameInc.Logic_layer
             playerAmount = amount;
         }
 
+        public void switchActivePlayer() {
+
+            if (activePlayer == player1) {
+                activePlayer = player2;
+            }
+            else
+            {
+                activePlayer = player1;
+            }
+        }
     }
 }

@@ -47,11 +47,11 @@ namespace BoardgameInc
         }
 
 
-        public void updateGrid(List<int> grid) {
+        public void updateGrid(List<int> grid, int hitMarker) {
             ActivePlayer.Text = "Active player: " + controller.getActivePlayer().getName();
             ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield().getName();
             ShipsLeft.Text = "Ships left for " + controller.getActivePlayfield().getName() + " : " + controller.getShipLeft();
-           
+
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     Button temp = (Button)GameGrid.Children.OfType<Button>().Where(x => Grid.GetRow(x) == i && Grid.GetColumn(x) == j).FirstOrDefault();
@@ -83,6 +83,11 @@ namespace BoardgameInc
                         Console.WriteLine("Error");
                     }
 
+                    if (hitMarker == 0)
+                    {
+                        ShotOutput.Text = "You sank a ship! ";
+                    }
+
                 }
             }
 
@@ -91,6 +96,7 @@ namespace BoardgameInc
         private void save(object sender, RoutedEventArgs e)
         {
             controller.saveGame();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

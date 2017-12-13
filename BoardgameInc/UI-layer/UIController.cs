@@ -49,11 +49,11 @@ namespace BoardgameInc.UI_layer
             return 0;
         }
 
-        public void updateGrid()
+        public void updateGrid(int hitMarker)
         {
             activePlayfield = lc.getActivePlayfield();
             GameWindow temp = (GameWindow)current;
-            temp.updateGrid(activePlayfield.getGrid());
+            temp.updateGrid(activePlayfield.getGrid(), hitMarker);
 
         }
 
@@ -69,6 +69,7 @@ namespace BoardgameInc.UI_layer
             {
                 ShipSelectWindow temp = (ShipSelectWindow)current;
                 temp.clearShips();
+                lc.switchActivePlayer();
                 currentShipSize = 2;
                 counter++;
             }
@@ -158,7 +159,7 @@ namespace BoardgameInc.UI_layer
             activePlayer = lc.getActivePlayer();
             activePlayfield = lc.getActivePlayfield();
             switchView(new GameWindow(this));
-            updateGrid();
+            updateGrid(1);
 
         }
     }
