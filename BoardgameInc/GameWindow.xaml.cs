@@ -48,6 +48,8 @@ namespace BoardgameInc
 
 
         public void updateGrid(List<int> grid, int hitMarker) {
+
+            ShotOutput.Text = " ";
             ActivePlayer.Text = "Active player: " + controller.getActivePlayer().getName();
             ActivePlayfield.Text = "Active playfield: " + controller.getActivePlayfield().getName();
             ShipsLeft.Text = "Ships left for " + controller.getActivePlayfield().getName() + " : " + controller.getShipLeft();
@@ -69,24 +71,23 @@ namespace BoardgameInc
                         
                         brush.ImageSource = new BitmapImage(new Uri("Images/Miss.jpg", UriKind.Relative));
                         temp.Background = brush;
-                        ShotOutput.Text = "The shot was a MISS";
+
+
                     }
                     else if (grid[tempInt] == 2)
                     {
                         
                         brush.ImageSource = new BitmapImage(new Uri("Images/Hit.jpg", UriKind.Relative));
                         temp.Background = brush;
-                        ShotOutput.Text = "The shot was a HIT";
+                        
+
                     }
                     else
                     {
                         Console.WriteLine("Error");
                     }
 
-                    if (hitMarker == 0)
-                    {
-                        ShotOutput.Text = "You sank a ship! ";
-                    }
+                    setShotOutput(hitMarker);
 
                 }
             }
@@ -97,6 +98,24 @@ namespace BoardgameInc
         {
             controller.saveGame();
             System.Windows.Application.Current.Shutdown();
+        }
+
+        public void setShotOutput(int hitMarker) {
+
+            if (hitMarker == 0)
+            {
+                ShotOutput.Text = "You sank a ship! ";
+
+            }
+            else if (hitMarker == -1)
+            {
+
+                ShotOutput.Text = "The shot was a Miss";
+            }
+            else {
+                ShotOutput.Text = "The shot was a Hit";
+            }
+            
         }
     }
 }

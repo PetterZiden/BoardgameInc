@@ -32,7 +32,7 @@ namespace BoardgameInc.Logic_layer
             player2.placeShips(new int[] { 2, 3, 4 });
             activePlayer = player1;
             activePlayfield = player2.getPlayfield();
-            ui.updateGrid(1);
+            ui.updateGrid(8);
 
         }
 
