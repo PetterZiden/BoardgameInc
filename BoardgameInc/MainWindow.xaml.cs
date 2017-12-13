@@ -37,8 +37,10 @@ namespace BoardgameInc
             controller.setPlayerAmount(playerAmount);
             onePlayerButton.Visibility = System.Windows.Visibility.Hidden;
             twoPlayerButton.Visibility = System.Windows.Visibility.Hidden;
+            loadGameButton.Visibility = System.Windows.Visibility.Hidden;
             playerOneName.Visibility = System.Windows.Visibility.Visible;
             playerOneInput.Visibility = System.Windows.Visibility.Visible;
+            playerOutput.Text = "Player one, enter your name.";
         }
         
         private void onePlayerInput(object sender, RoutedEventArgs e)
@@ -54,6 +56,7 @@ namespace BoardgameInc
                 playerOneInput.Visibility = System.Windows.Visibility.Hidden;
                 playerTwoName.Visibility = System.Windows.Visibility.Visible;
                 playerTwoInput.Visibility = System.Windows.Visibility.Visible;
+                playerOutput.Text = "Player two, enter your name.";
             }
         }
 

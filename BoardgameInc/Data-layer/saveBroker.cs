@@ -67,18 +67,34 @@ namespace BoardgameInc.Data_layer
                     new XElement("Player",
                         new XElement("Name", p1Name),
                         new XElement("GridList", playerOneGrid.Select(x => new XElement("Grid", x))),
-                        new XElement("ShipList", playerOneShips.Select(x => new XElement("Ships", x)))),
+                        new XElement("Ships", playerOneShips.Select(x => new XElement("Ship",
+                                new XAttribute("ShipSize", x.getSize()),
+                                new XElement("ShipGrids", x.getGridlocs().Select(y => new XElement("ShipGrids",
+                                    new XAttribute("Grid", y)
+                                 )))
+                            )))
+                        ),
                     new XElement("Player",
                         new XElement("Name", p2Name),
                         new XElement("GridList", playerTwoGrid.Select(x => new XElement("Grid", x))),
-                        new XElement("PlayerTwoShips", playerTwoShips.Select(x => new XElement("Ships", x))))),
+                        new XElement("Ships", playerTwoShips.Select(x => new XElement("Ship",
+                                new XAttribute("ShipSize", x.getSize()),
+                                new XElement("ShipGrids", x.getGridlocs().Select(y => new XElement("ShipGrids",
+                                    new XAttribute("Grid", y)
+                                )))
+                            )))
+                        )
+                    ),
                 new XElement("ActivePlayer", activePlayer),
-                new XElement("PlayerAmount", 2));
+                new XElement("PlayerAmount", 2)
+                );
 
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            XmlWriter writer = XmlWriter.Create("save.xml", settings);
-            doc.Save(writer);
+            StringWriter sWriter = new StringWriter();
+            XmlWriter xWriter = XmlWriter.Create(sWriter);
+            Console.WriteLine(xWriter);
+            doc.Save(xWriter);
+            xWriter.Close();
+            doc.Save("Z:\\save.xml");
         }
     }
 }

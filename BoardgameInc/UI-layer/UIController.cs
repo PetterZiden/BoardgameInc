@@ -70,6 +70,7 @@ namespace BoardgameInc.UI_layer
                 ShipSelectWindow temp = (ShipSelectWindow)current;
                 temp.clearShips();
                 lc.switchActivePlayer();
+                activePlayer = lc.getActivePlayer();
                 currentShipSize = 2;
                 counter++;
             }
