@@ -71,5 +71,35 @@ namespace BoardgameInc
         {
             controller.loadGame();
         }
+
+        private void playerOneName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+
+                if (controller.getPlayerAmount() == 1)
+                {
+                    controller.setPlayers(playerOneName.Text, "");
+                    controller.switchView(new ShipSelectWindow(controller));
+                }
+                else
+                {
+                    playerOneName.Visibility = System.Windows.Visibility.Hidden;
+                    playerOneInput.Visibility = System.Windows.Visibility.Hidden;
+                    playerTwoName.Visibility = System.Windows.Visibility.Visible;
+                    playerTwoInput.Visibility = System.Windows.Visibility.Visible;
+                    playerOutput.Text = "Player two, enter your name.";
+                }
+            }
+        }
+
+        private void playerTwoName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                controller.setPlayers(playerOneName.Text, playerTwoName.Text);
+                controller.switchView(new ShipSelectWindow(controller));
+            }
+        }
     }
 }
