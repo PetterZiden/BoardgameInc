@@ -35,7 +35,7 @@ namespace BoardgameInc
         private void btn_reset_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            controller.switchView(new MainWindow(controller));
+            controller.startNewGame();
 
         }
 

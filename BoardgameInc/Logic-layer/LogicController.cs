@@ -165,5 +165,13 @@ namespace BoardgameInc.Logic_layer
                 activePlayer = player1;
             }
         }
+
+        public void resetGame()
+        {
+            player1 = null;
+            player2 = null;
+            activePlayer = null;
+            activePlayfield = null;
+        }
     }
 }

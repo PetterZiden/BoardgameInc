@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Images/mainMenuImage.jpg"/>
+            <ImageBrush ImageSource="/BoardgameInc;component/Images/mainMenuImage.jpg"/>
         </Grid.Background>
         <Button Name="onePlayerButton" Content="One player" Tag="1" HorizontalAlignment="Left" Visibility="Visible" Margin="138,227,0,0" VerticalAlignment="Top" Width="75" Click="playerAmountInput"/>
         <Button Name="twoPlayerButton" Content="Two players" Tag="2" HorizontalAlignment="Left" Visibility="Visible" Margin="292,227,0,0" VerticalAlignment="Top" Width="75" Click="playerAmountInput" RenderTransformOrigin="-0.25,0.525"/>

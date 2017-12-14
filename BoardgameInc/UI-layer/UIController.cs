@@ -1,9 +1,6 @@
 ﻿using BoardgameInc.Logic_layer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace BoardgameInc.UI_layer
@@ -162,6 +159,21 @@ namespace BoardgameInc.UI_layer
             switchView(new GameWindow(this));
             updateGrid(15);
 
+        }
+
+        public void startNewGame()
+        {
+            lc.resetGame();
+            resetGame();
+            switchView(new MainWindow(this));
+        }
+
+        public void resetGame()
+        {
+            counter = 1;
+            currentShipSize = 2;
+            activePlayer = null;
+            activePlayfield = null;
         }
     }
 }
