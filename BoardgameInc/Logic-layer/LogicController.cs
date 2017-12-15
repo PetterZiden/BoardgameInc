@@ -36,6 +36,22 @@ namespace BoardgameInc.Logic_layer
 
         }
 
+        public void setPlayers(String n1, String n2, int amount)
+        {
+            playerAmount = amount;
+            player1 = new HumanPlayer(n1);
+            activePlayer = player1;
+
+            if (playerAmount == 1)
+            {
+                player2 = new AIPlayer("AI");
+            }
+            else
+            {
+                player2 = new HumanPlayer(n2);
+            }
+        }
+
         public async void shotInput(int input)
         {
             int hitMarker = activePlayfield.checkHit(input);
@@ -100,23 +116,6 @@ namespace BoardgameInc.Logic_layer
         {
             ui = c;
         } 
-
-        public void setPlayers(String n1, String n2, int amount)
-        {
-            playerAmount = amount;
-            player1 = new HumanPlayer(n1);
-            activePlayer = player1;
-
-            if (playerAmount == 1)
-            {
-                player2 = new AIPlayer("AI");
-            }
-            else
-            {
-                player2 = new HumanPlayer(n2);
-            }
-
-        }
 
         public void saveGame()
         {

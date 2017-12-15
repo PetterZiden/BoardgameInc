@@ -29,6 +29,31 @@ namespace BoardgameInc.UI_layer
             mw.Show();
         }
 
+        public void setShip(List<int> shipLocs)
+        {
+            activePlayer.setShipLoc(shipLocs);
+            if (currentShipSize < 4)
+            {
+                currentShipSize++;
+
+            }
+            else if (playerAmount > counter && activePlayer.GetType() == typeof(HumanPlayer))
+            {
+                ShipSelectWindow temp = (ShipSelectWindow)current;
+                temp.clearShips();
+                lc.switchActivePlayer();
+                activePlayer = lc.getActivePlayer();
+                currentShipSize = 2;
+                counter++;
+            }
+            else
+            {
+                switchView(new GameWindow(this));
+                lc.StartGame();
+                activePlayfield = lc.getActivePlayfield();
+            }
+        }
+
         public void switchView(Window view)
         {
             view.Show();
@@ -54,30 +79,7 @@ namespace BoardgameInc.UI_layer
 
         }
 
-        public void setShip(List<int> shipLocs)
-        {
-            activePlayer.setShipLoc(shipLocs);
-            if(currentShipSize < 4)
-            {
-                currentShipSize++;
-                
-            }
-            else if(playerAmount > counter && activePlayer.GetType() == typeof(HumanPlayer)) 
-            {
-                ShipSelectWindow temp = (ShipSelectWindow)current;
-                temp.clearShips();
-                lc.switchActivePlayer();
-                activePlayer = lc.getActivePlayer();
-                currentShipSize = 2;
-                counter++;
-            }
-            else
-            {
-                switchView(new GameWindow(this));
-                lc.StartGame();
-                activePlayfield = lc.getActivePlayfield();
-            }
-        }
+        
 
         public void setPlayerAmount(int a)
         {
