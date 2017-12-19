@@ -28,6 +28,7 @@ namespace BoardgameInc
         {
             InitializeComponent();
             controller = u;
+            GameOverText.Text = controller.getActivePlayer().getName() + " has destroyed all of " + controller.getActivePlayfield().getName() + "s ships!\n" + controller.getActivePlayer().getName() + " wins!";
             
 
         }

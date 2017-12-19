@@ -11,12 +11,15 @@ namespace BoardgameInc.Data_layer
 {
     class LoadBroker
     {
+
+        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"\save.xml";
+
         public LoadBroker() {
         }
 
         public LoadObject loadFromXML() {
 
-            XDocument doc = XDocument.Load("Z:\\save.xml");
+            XDocument doc = XDocument.Load(directory);
 
             var tempPlayer = from r in doc.Descendants("Player")
                        select new

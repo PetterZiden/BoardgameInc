@@ -12,6 +12,8 @@ namespace BoardgameInc.Data_layer
 {
     class SaveBroker
     {
+        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"\save.xml";
+
         public SaveBroker() {
 
         }
@@ -56,7 +58,7 @@ namespace BoardgameInc.Data_layer
             Console.WriteLine(xWriter);
             doc.Save(xWriter);
             xWriter.Close();
-            doc.Save("Z:\\save.xml");
+            doc.Save(directory);
         }
 
         public void saveToXML(List<int> playerOneGrid, List<int> playerTwoGrid, List<Ship> playerOneShips, List<Ship> playerTwoShips, String p1Name, String p2Name, int activePlayer)

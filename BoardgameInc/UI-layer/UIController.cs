@@ -13,6 +13,7 @@ namespace BoardgameInc.UI_layer
         Window current;
         Boolean paused;
         LogicController lc;
+        ExceptionHandler exceptionHandler;
         int currentShipSize = 2;
         int counter = 1;
 
@@ -24,9 +25,17 @@ namespace BoardgameInc.UI_layer
 
         public void startApp()
         {
-            MainWindow mw = new MainWindow(this);
-            current = mw;
-            mw.Show();
+            try
+            {
+                MainWindow mw = new MainWindow(this);
+                current = mw;
+                mw.Show();
+            } 
+            catch(Exception e)
+            {
+                exceptionHandler.WindowErrorException(e.Message);
+            }
+            
         }
 
         public void setShip(List<int> shipLocs)
@@ -52,6 +61,13 @@ namespace BoardgameInc.UI_layer
                 lc.StartGame();
                 activePlayfield = lc.getActivePlayfield();
             }
+        }
+
+        public void printError(string errorOutput)
+        {
+            ErrorOutputWindow errorWindow = new ErrorOutputWindow();
+            errorWindow.setMessage(errorOutput);
+            errorWindow.Show();
         }
 
         public void switchView(Window view)
@@ -157,9 +173,12 @@ namespace BoardgameInc.UI_layer
         {
             lc.loadGame();
             activePlayer = lc.getActivePlayer();
-            activePlayfield = lc.getActivePlayfield();
-            switchView(new GameWindow(this));
-            updateGrid(15);
+            if (activePlayer != null)
+            {
+                activePlayfield = lc.getActivePlayfield();
+                switchView(new GameWindow(this));
+                updateGrid(15);
+            }
 
         }
 
@@ -176,6 +195,11 @@ namespace BoardgameInc.UI_layer
             currentShipSize = 2;
             activePlayer = null;
             activePlayfield = null;
+        }
+
+        public void setExceptionHandler(ExceptionHandler eh)
+        {
+            exceptionHandler = eh;
         }
     }
 }

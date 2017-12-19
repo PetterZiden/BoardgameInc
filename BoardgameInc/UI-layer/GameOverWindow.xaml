@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Gameover" Height="300" Width="300">
     <Grid>
-        <TextBlock Name="GameOverText" Margin="10,29,15,64" Text="Game is over" TextAlignment="Center"></TextBlock>
+        <TextBlock Name="GameOverText" Margin="10,29,15,64" TextAlignment="Center"></TextBlock>
         <Button Name="btn_reset" Click="btn_reset_Click" Content="Reset" Margin="10,229,215,10"></Button>
         <Button Name="btn_close" Click="btn_close_Click" Content="Close" Margin="215,229,15,10"></Button>
     </Grid>

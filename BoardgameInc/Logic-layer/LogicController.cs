@@ -18,6 +18,7 @@ namespace BoardgameInc.Logic_layer
         PlayField activePlayfield;
         UIController ui;
         DataController data;
+        ExceptionHandler exceptionHandler;
 
         public LogicController(DataController dc)
         {
@@ -57,27 +58,34 @@ namespace BoardgameInc.Logic_layer
             int hitMarker = activePlayfield.checkHit(input);
             if (activePlayfield.getShipsLeft())
             {
-                activePlayer.getShotFeedback(hitMarker, input);
-                ui.updateGrid(hitMarker);
-                ui.switchPaused();
-                await Task.Delay(1500);
-                ui.switchPaused();
-                activePlayfield = activePlayer.getPlayfield();
-                if (activePlayer == player1)
+                try
                 {
-                    Console.WriteLine("Player 1 to Player 2");
-                    activePlayer = player2;
+                    activePlayer.getShotFeedback(hitMarker, input);
+                    ui.updateGrid(hitMarker);
+                    ui.switchPaused();
+                    await Task.Delay(1500);
+                    ui.switchPaused();
+                    activePlayfield = activePlayer.getPlayfield();
+                    if (activePlayer == player1)
+                    {
+                        Console.WriteLine("Player 1 to Player 2");
+                        activePlayer = player2;
 
+                    }
+                    else
+                    {
+                        Console.WriteLine("Player 2 to Player 1");
+                        activePlayer = player1;
+                    }
+                    ui.updateGrid(15);
+                    if (activePlayer.GetType() == typeof(AIPlayer))
+                    {
+                        shotInput(activePlayer.getShotLoc());
+                    }
                 }
-                else
+                catch(IndexOutOfRangeException e)
                 {
-                    Console.WriteLine("Player 2 to Player 1");
-                    activePlayer = player1;
-                }
-                ui.updateGrid(15);
-                if (activePlayer.GetType() == typeof(AIPlayer))
-                {
-                    shotInput(activePlayer.getShotLoc());
+                    exceptionHandler.IncorrectGridException(e.Message);
                 }
             }
             else {
@@ -134,10 +142,14 @@ namespace BoardgameInc.Logic_layer
         public void loadGame()
         {
             List<Player> players = data.load(this);
-            player1 = players[0];
-            player2 = players[1];
-            activePlayer = player1;
-            activePlayfield = player2.getPlayfield();
+
+            if (players != null)
+            {
+                player1 = players[0];
+                player2 = players[1];
+                activePlayer = player1;
+                activePlayfield = player2.getPlayfield();
+            }
         }
 
         public void setGameInfo(int active, int amount)
@@ -171,6 +183,11 @@ namespace BoardgameInc.Logic_layer
             player2 = null;
             activePlayer = null;
             activePlayfield = null;
+        }
+
+        public void setExceptionHandler(ExceptionHandler eh)
+        {
+            exceptionHandler = eh;
         }
     }
 }

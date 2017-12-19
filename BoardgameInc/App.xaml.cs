@@ -24,6 +24,10 @@ namespace BoardgameInc
             LogicController lc = new LogicController(dc);
             UIController ui = new UIController(lc);
             lc.setUIController(ui);
+            ExceptionHandler eh = new ExceptionHandler(ui);
+            dc.setExceptionHandler(eh);
+            lc.setExceptionHandler(eh);
+            ui.setExceptionHandler(eh);
             ui.startApp();
         }
     }
