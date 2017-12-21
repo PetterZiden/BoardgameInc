@@ -96,7 +96,7 @@ namespace BoardgameInc.Data_layer
             Console.WriteLine(xWriter);
             doc.Save(xWriter);
             xWriter.Close();
-            doc.Save("Z:\\save.xml");
+            doc.Save(directory);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace BoardgameInc.UI_layer
         ExceptionHandler exceptionHandler;
         int currentShipSize = 2;
         int counter = 1;
+        Boolean saveError;
 
 
         public UIController(LogicController c) {
@@ -95,8 +96,6 @@ namespace BoardgameInc.UI_layer
 
         }
 
-        
-
         public void setPlayerAmount(int a)
         {
             playerAmount = a;
@@ -167,6 +166,10 @@ namespace BoardgameInc.UI_layer
         public void saveGame()
         {
             lc.saveGame();
+            if(!saveError)
+            {
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         public void loadGame()
@@ -200,6 +203,11 @@ namespace BoardgameInc.UI_layer
         public void setExceptionHandler(ExceptionHandler eh)
         {
             exceptionHandler = eh;
+        }
+
+        public void setSaveError(Boolean b)
+        {
+            saveError = b;
         }
     }
 }

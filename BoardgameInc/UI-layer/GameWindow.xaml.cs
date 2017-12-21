@@ -96,7 +96,6 @@ namespace BoardgameInc
         private void save(object sender, RoutedEventArgs e)
         {
             controller.saveGame();
-            System.Windows.Application.Current.Shutdown();
         }
 
         public void setShotOutput(int hitMarker) {

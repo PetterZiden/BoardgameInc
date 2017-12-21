@@ -24,6 +24,7 @@ namespace BoardgameInc.Logic_layer
         public void SaveException(string errorOutput)
         {
             ui.printError("Unable to save file: " + errorOutput);
+            ui.setSaveError(true);
         }
 
         public void IncorrectGridException(string errorOutput)
