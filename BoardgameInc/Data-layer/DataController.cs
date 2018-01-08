@@ -11,7 +11,6 @@ namespace BoardgameInc.Data_layer
     {
         SaveBroker sBroker;
         LoadBroker lBroker;
-        ExceptionHandler exceptionHandler;
 
         public DataController()
         {
@@ -21,8 +20,6 @@ namespace BoardgameInc.Data_layer
 
         public void save(Player player1, Player player2, int activePlayer, int playerAmount)
         {
-            try
-            {
                 if (playerAmount == 1)
                 {
                     sBroker.saveToXML(player1.getPlayfield().getGrid(), player2.getPlayfield().getGrid(), player1.getPlayfield().getShips(), player2.getPlayfield().getShips(), player1.getName(), player2.getName(), activePlayer, player2.getAIGrid(), player2.getMediumPriority(), player2.getHighPriority());
@@ -31,17 +28,13 @@ namespace BoardgameInc.Data_layer
                 {
                     sBroker.saveToXML(player1.getPlayfield().getGrid(), player2.getPlayfield().getGrid(), player1.getPlayfield().getShips(), player2.getPlayfield().getShips(), player1.getName(), player2.getName(), activePlayer);
                 }
-            } catch(Exception e)
-            {
-                exceptionHandler.SaveException(e.Message);
-            }
+           
         }
 
         public List<Player> load(LogicController lc)
         {
             List<Player> players = new List<Player>();
-            try
-            {
+
                 LoadObject loaded = lBroker.loadFromXML();
                 players.Add(new HumanPlayer(loaded.playerOneName, new PlayField(loaded.playerOneShips, loaded.playerOneName, loaded.playerOneGrid)));
                 Console.WriteLine("Player amount: " + loaded.playerAmount);
@@ -57,20 +50,12 @@ namespace BoardgameInc.Data_layer
                 lc.setGameInfo(loaded.activePlayer, loaded.playerAmount);
 
                 return players;
-            }
-            catch (Exception e)
-            {
-                exceptionHandler.LoadException(e.Message);
-            }
-
-            return null;
             
 
-            }
+            
 
-        public void setExceptionHandler(ExceptionHandler eh)
-        {
-            exceptionHandler = eh;
         }
+
+
     }
 }

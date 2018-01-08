@@ -1,4 +1,5 @@
-﻿using BoardgameInc.Logic_layer;
+﻿using BoardgameInc.Data_layer;
+using BoardgameInc.Logic_layer;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -13,10 +14,8 @@ namespace BoardgameInc.UI_layer
         Window current;
         Boolean paused;
         LogicController lc;
-        ExceptionHandler exceptionHandler;
         int currentShipSize = 2;
         int counter = 1;
-        Boolean saveError;
 
 
         public UIController(LogicController c) {
@@ -34,7 +33,7 @@ namespace BoardgameInc.UI_layer
             } 
             catch(Exception e)
             {
-                exceptionHandler.WindowErrorException(e.Message);
+                printError("Failed to open game window: " + e.Message);
             }
             
         }
@@ -82,7 +81,13 @@ namespace BoardgameInc.UI_layer
         {
             if (!paused)
             {
-                lc.shotInput(input);
+                try
+                {
+                    lc.shotInput(input);
+                } catch(HitmarkerOutOfRangeException e)
+                {
+                    printError(e.Message);
+                }
             }
             
             return 0;
@@ -165,22 +170,32 @@ namespace BoardgameInc.UI_layer
 
         public void saveGame()
         {
-            lc.saveGame();
-            if(!saveError)
+            try
             {
+                lc.saveGame();
                 System.Windows.Application.Current.Shutdown();
             }
+            catch (FailedToSaveLoadException e) {
+                printError(e.Message);
+            }
+            
         }
 
         public void loadGame()
         {
-            lc.loadGame();
-            activePlayer = lc.getActivePlayer();
-            if (activePlayer != null)
+            try
             {
-                activePlayfield = lc.getActivePlayfield();
-                switchView(new GameWindow(this));
-                updateGrid(15);
+                lc.loadGame();
+                activePlayer = lc.getActivePlayer();
+                if (activePlayer != null)
+                {
+                    activePlayfield = lc.getActivePlayfield();
+                    switchView(new GameWindow(this));
+                    updateGrid(15);
+                }
+            } catch(FailedToSaveLoadException e)
+            {
+                printError(e.Message);
             }
 
         }
@@ -198,16 +213,6 @@ namespace BoardgameInc.UI_layer
             currentShipSize = 2;
             activePlayer = null;
             activePlayfield = null;
-        }
-
-        public void setExceptionHandler(ExceptionHandler eh)
-        {
-            exceptionHandler = eh;
-        }
-
-        public void setSaveError(Boolean b)
-        {
-            saveError = b;
         }
     }
 }

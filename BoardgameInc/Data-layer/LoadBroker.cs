@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
+using System.IO;
 using System.Xml.Linq;
 
 namespace BoardgameInc.Data_layer
@@ -12,14 +10,22 @@ namespace BoardgameInc.Data_layer
     class LoadBroker
     {
 
-        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"\save.xml";
+        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"save.xml";
 
         public LoadBroker() {
         }
 
         public LoadObject loadFromXML() {
-
-            XDocument doc = XDocument.Load(directory);
+            XDocument doc = null;
+            Console.WriteLine(directory);
+            if (File.Exists(directory))
+            {
+                doc = XDocument.Load(directory);
+            }
+            else
+            {
+                throw new FailedToSaveLoadException("Failed to load file! Directory does not exist!");
+            }
 
             var tempPlayer = from r in doc.Descendants("Player")
                        select new

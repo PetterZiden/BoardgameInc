@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -12,7 +10,7 @@ namespace BoardgameInc.Data_layer
 {
     class SaveBroker
     {
-        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"\save.xml";
+        private readonly string directory = AppDomain.CurrentDomain.BaseDirectory + @"save.xml";
 
         public SaveBroker() {
 
@@ -56,9 +54,17 @@ namespace BoardgameInc.Data_layer
             StringWriter sWriter = new StringWriter();
             XmlWriter xWriter = XmlWriter.Create(sWriter);
             Console.WriteLine(xWriter);
-            doc.Save(xWriter);
-            xWriter.Close();
-            doc.Save(directory);
+            if (checkDirectoryValidity())
+            {
+                doc.Save(xWriter);
+                xWriter.Close();
+                doc.Save(directory);
+            }
+            else
+            {
+                throw new FailedToSaveLoadException("Failed to save! Directory does not exist!");
+            }
+            
         }
 
         public void saveToXML(List<int> playerOneGrid, List<int> playerTwoGrid, List<Ship> playerOneShips, List<Ship> playerTwoShips, String p1Name, String p2Name, int activePlayer)
@@ -93,10 +99,37 @@ namespace BoardgameInc.Data_layer
 
             StringWriter sWriter = new StringWriter();
             XmlWriter xWriter = XmlWriter.Create(sWriter);
-            Console.WriteLine(xWriter);
-            doc.Save(xWriter);
-            xWriter.Close();
-            doc.Save(directory);
+            if (checkDirectoryValidity())
+            {
+                doc.Save(xWriter);
+                xWriter.Close();
+                doc.Save(directory);
+            } else
+            {
+                throw new FailedToSaveLoadException("Failed to save! Directory does not exist!");
+            }
+
+            
+        }
+
+        public Boolean checkDirectoryValidity()
+        {
+            System.IO.FileInfo fi = null;
+            try
+            {
+                fi = new System.IO.FileInfo(directory);
+            }
+            catch (ArgumentException) { }
+            catch (System.IO.PathTooLongException) { }
+            catch (NotSupportedException) { }
+            if (ReferenceEquals(fi, null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
